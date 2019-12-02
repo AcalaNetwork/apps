@@ -20,7 +20,7 @@ import Queue from '@polkadot/react-components/Status/Queue';
 import { BlockAuthors, Events } from '@polkadot/react-query';
 
 // TODO: use the generated definitions instead
-import acalaTypes from '@acala-network/types/interfaces/runtime/definitions'
+import acalaTypes from '@acala-network/types/interfaces/runtime/definitions';
 
 import Apps from './Apps';
 
