@@ -29,10 +29,12 @@ interface State extends StateUrl {
 }
 
 const hijackSettings = (): void => {
-  const ENDPOINT_DEFAULT = 'wss://node-6632097881473671168.au.onfinality.cloud/ws';
+  const ENDPOINT_DEFAULT = 'wss://node-6635400830093635584.jm.onfinality.io/ws';
   const ENDPOINTS = [
-    { text: 'Mandala Testnet (Hosted by OnFinality)', value: ENDPOINT_DEFAULT, info: 'substrate' },
-    { text: 'Mandala Testnet (Hosted by Acala)', value: 'wss://testnet-node-1.acala.laminar.one/ws', info: 'substrate' },
+    { text: 'Mandala Testnet Node 1 (Hosted by OnFinality)', value: ENDPOINT_DEFAULT, info: 'substrate' },
+    { text: 'Mandala Testnet Node 2 (Hosted by OnFinality)', value: 'wss://node-6635401438879883264.rz.onfinality.io/ws', info: 'substrate' },
+    { text: 'Mandala Testnet Node 3 (Hosted by OnFinality)', value: 'wss://node-6635659018722156544.rz.onfinality.io/ws', info: 'substrate' },
+    { text: 'Mandala Testnet Node 4 (Hosted by Acala)', value: 'wss://testnet-node-1.acala.laminar.one/ws', info: 'substrate' },
     { text: 'Local Node (127.0.0.1:9944)', value: 'ws://127.0.0.1:9944/', info: 'substrate' }
   ];
   const storedSettings = store.get('settings') || {};
@@ -67,7 +69,7 @@ function makeUrl (_url: string): StateUrl {
 // validation on-top of the values retrieved
 function getInitialState (): State {
   const url = uiSettings.get().apiUrl;
-  const isCustom = uiSettings.availableNodes.reduce((isCustom: boolean, { value }): boolean => {
+  const isCustom = availableEndpoints.reduce((isCustom: boolean, { value }): boolean => {
     return isCustom && value !== url;
   }, true);
   const isValid = isValidUrl(url);
@@ -97,7 +99,7 @@ function SelectUrl ({ className, onChange }: Props): React.ReactElement<Props> {
       ...makeUrl(
         isCustom
           ? info.url
-          : uiSettings.availableNodes[0].value as string
+          : availableEndpoints[0].value as string
       ),
       isCustom
     });
