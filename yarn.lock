@@ -2,6 +2,25 @@
 # yarn lockfile v1
 
 
+"@acala-network/api@beta":
+  version "0.2.0-beta.19"
+  resolved "https://registry.yarnpkg.com/@acala-network/api/-/api-0.2.0-beta.19.tgz#d7933009c76db3273be1f0f7a4d1ec7ee1277408"
+  integrity sha512-ovjFOKl4Erdo3cHmH79gTUcYdVWMoWGOnUqZNEumngdwo5PRNbpXDntZ14t+vajlaIKzYGcr4zcI885rc6h0+w==
+  dependencies:
+    "@acala-network/types" beta
+    "@babel/runtime" "^7.8.0"
+    "@orml/jsonrpc" beta
+    "@polkadot/api" beta
+
+"@acala-network/types@beta":
+  version "0.2.0-beta.19"
+  resolved "https://registry.yarnpkg.com/@acala-network/types/-/types-0.2.0-beta.19.tgz#13a1a3529178cf4e23fd1b826f86a38349bd045c"
+  integrity sha512-/gC7RqjRFsr7Hwe8AYfVNghKOw5tzCLoRYZD4Lxd2NAItr5qpw+Uzrbenk6TWYBSAkaeR36/XjJ/g8aT3ksWpQ==
+  dependencies:
+    "@babel/runtime" "^7.8.0"
+    "@orml/types" beta
+    "@polkadot/api" beta
+
 "@babel/cli@^7.8.4":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.8.4.tgz#505fb053721a98777b2b175323ea4f090b7d3c1c"
@@ -890,7 +909,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.16"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.0", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
   integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
@@ -2158,6 +2177,21 @@
   dependencies:
     "@types/node" ">= 8"
 
+"@orml/jsonrpc@beta":
+  version "0.2.0-beta.23"
+  resolved "https://registry.yarnpkg.com/@orml/jsonrpc/-/jsonrpc-0.2.0-beta.23.tgz#bf4f9b04b5e32479963be7e6b1e152c17f0a75a0"
+  integrity sha512-VW4LJTxGFZWmsLdu+GLjE/i/uJjC07mDrv/vBFcMIV8h8vEqOqD1z2fMCUUy3uoEDJBAwBDFksgZx2M9tEMjSQ==
+  dependencies:
+    "@babel/runtime" "^7.8.3"
+    "@polkadot/api" beta
+
+"@orml/types@beta":
+  version "0.2.0-beta.23"
+  resolved "https://registry.yarnpkg.com/@orml/types/-/types-0.2.0-beta.23.tgz#1058e154fe45db3b9bf3cb373747b5d6e966f832"
+  integrity sha512-l8OdpsMb5QbVjzvfHWm/VCexiTOz8OFIbMLpRzA/0BzWJjIeAmBZ9PBB+7kEedGwtLiPu3QRhYZG7BRB5HmhNA==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+
 "@polkadot/api-contract@^1.4.1":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@polkadot/api-contract/-/api-contract-1.4.1.tgz#125eb8e18cf33c83ccb527195140bc7bf1924300"
@@ -2187,7 +2221,7 @@
     memoizee "^0.4.14"
     rxjs "^6.5.4"
 
-"@polkadot/api@1.4.1", "@polkadot/api@^1.4.1":
+"@polkadot/api@1.4.1", "@polkadot/api@^1.4.1", "@polkadot/api@beta":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@polkadot/api/-/api-1.4.1.tgz#78135136b88177e4d894951cecb8d95495118883"
   integrity sha512-GCRqpMmNJnHbv4WASVBBhXrChKk+8851QMXQyv4HJrs8LwslKwMBDEa+jPD9Q7ZsZqp44cdpvVBGnCjIZAQrKA==
