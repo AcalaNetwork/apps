@@ -5,9 +5,9 @@
 import { Option } from '../types';
 
 export default [
-  { text: 'Mandala TC2 Node 1 (Hosted by OnFinality)', value: 'wss://node-6638598411711750144.jm.onfinality.io/ws', info: 'substrate' },
-  { text: 'Mandala TC2 Node 2 (Hosted by OnFinality)', value: 'wss://node-6638598411720138752.jm.onfinality.io/ws', info: 'substrate' },
-  { text: 'Mandala TC2 Node 3 (Hosted by OnFinality)', value: 'wss://node-6638598411693088768.rz.onfinality.io/ws', info: 'substrate' },
+  { text: 'Mandala TC2 Node 1 (Hosted by OnFinality)', value: 'wss://node-6640517791634960384.jm.onfinality.io/ws', info: 'substrate' },
+  { text: 'Mandala TC2 Node 2 (Hosted by OnFinality)', value: 'wss://node-6640517791654576128.jm.onfinality.io/ws', info: 'substrate' },
+  { text: 'Mandala TC2 Node 3 (Hosted by OnFinality)', value: 'wss://node-6640517791639154689.rz.onfinality.io/ws', info: 'substrate' },
   { text: 'Mandala TC2 Node 4 (Hosted by Acala)', value: 'wss://testnet-node-1.acala.laminar.one/ws', info: 'substrate' },
   { text: 'Mandala TC1 (Hosted by OnFinality)', value: 'wss://node-6635400830093635584.jm.onfinality.io/ws', info: 'substrate' },
   {
