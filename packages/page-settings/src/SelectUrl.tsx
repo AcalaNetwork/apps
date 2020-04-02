@@ -29,20 +29,11 @@ interface State extends StateUrl {
 }
 
 const hijackSettings = (): void => {
-  const ENDPOINTS = [
-    { text: 'Mandala TC2 Node 1 (Hosted by OnFinality)', value: 'wss://node-6640517791634960384.jm.onfinality.io/ws', info: 'substrate' },
-    { text: 'Mandala TC2 Node 2 (Hosted by OnFinality)', value: 'wss://node-6640517791654576128.jm.onfinality.io/ws', info: 'substrate' },
-    { text: 'Mandala TC2 Node 3 (Hosted by OnFinality)', value: 'wss://node-6640517791639154689.rz.onfinality.io/ws', info: 'substrate' },
-    { text: 'Mandala TC2 Node 4 (Hosted by Acala)', value: 'wss://testnet-node-1.acala.laminar.one/ws', info: 'substrate' },
-    { text: 'Mandala TC1 (Hosted by OnFinality)', value: 'wss://node-6635400830093635584.jm.onfinality.io/ws', info: 'substrate' },
-    { text: 'Local Node (127.0.0.1:9944)', value: 'ws://127.0.0.1:9944/', info: 'substrate' }
-  ];
   const storedSettings = store.get('settings') || {};
   const anySettings = uiSettings as any;
-  anySettings._apiUrl = storedSettings.apiUrl || ENDPOINTS[0].value;
+  // anySettings._apiUrl = storedSettings.apiUrl || ENDPOINTS[0].value;
   anySettings._prefix = storedSettings.prefix || PREFIX_DEFAULT;
   anySettings._icon = storedSettings.icon || ICON_DEFAULT;
-  Object.defineProperty(anySettings, 'availableNodes', { value: ENDPOINTS });
 };
 
 hijackSettings();
