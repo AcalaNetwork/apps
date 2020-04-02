@@ -61,18 +61,18 @@ function IdentityInfo (props: Props): React.ReactElement<Props> {
 
   useEffect((): void => {
     onChange && onChange({
+      isValid: !((hasImg && errImg) || (hasPgp && errPgp)),
       value: {
         display: { [hasDisplay ? 'raw' : 'none']: hasDisplay ? valDisplay : null },
         email: { [hasEmail ? 'raw' : 'none']: hasEmail ? valEmail : null },
         image: { [hasImg ? 'sha256' : 'none']: hasImg ? valImg : null },
         legal: { [hasLegal ? 'raw' : 'none']: hasLegal ? valLegal : null },
+        pgpFingerprint: hasPgp ? valPgp : null,
         riot: { [hasRiot ? 'raw' : 'none']: hasRiot ? valRiot : null },
-        web: { [hasWeb ? 'raw' : 'none']: hasWeb ? valWeb : null },
-        pgpFingerprint: hasPgp ? valPgp : null
-      },
-      isValid: !((hasImg && errImg) || (hasPgp && errPgp))
+        web: { [hasWeb ? 'raw' : 'none']: hasWeb ? valWeb : null }
+      }
     });
-  }, [errImg, errPgp, hasDisplay, hasEmail, hasImg, hasLegal, hasPgp, hasRiot, hasWeb, valDisplay, valEmail, valImg, valLegal, valPgp, valRiot, valWeb]);
+  }, [onChange, errImg, errPgp, hasDisplay, hasEmail, hasImg, hasLegal, hasPgp, hasRiot, hasWeb, valDisplay, valEmail, valImg, valLegal, valPgp, valRiot, valWeb]);
 
   if (isDisabled) {
     return (
@@ -80,8 +80,8 @@ function IdentityInfo (props: Props): React.ReactElement<Props> {
     );
   }
 
-  const _onChangeImg = (valImg: string): void => setValImg({ valImg, errImg: !isHex(valImg, 256) });
-  const _onChangePgp = (valPgp: string): void => setValPgp({ valPgp, errPgp: !isHex(valPgp, 160) });
+  const _onChangeImg = (valImg: string): void => setValImg({ errImg: !isHex(valImg, 256), valImg });
+  const _onChangePgp = (valPgp: string): void => setValPgp({ errPgp: !isHex(valPgp, 160), valPgp });
 
   return (
     <Bare
@@ -95,8 +95,8 @@ function IdentityInfo (props: Props): React.ReactElement<Props> {
         <Input
           isDisabled={!hasDisplay}
           label={t('display name')}
-          onChange={setValDisplay}
           maxLength={32}
+          onChange={setValDisplay}
           value={hasDisplay ? valDisplay : '<none>'}
         />
       </WrapToggle>
@@ -107,8 +107,8 @@ function IdentityInfo (props: Props): React.ReactElement<Props> {
         <Input
           isDisabled={!hasLegal}
           label={t('legal name')}
-          onChange={setValLegal}
           maxLength={32}
+          onChange={setValLegal}
           value={hasLegal ? valLegal : '<none>'}
         />
       </WrapToggle>
@@ -119,8 +119,8 @@ function IdentityInfo (props: Props): React.ReactElement<Props> {
         <Input
           isDisabled={!hasEmail}
           label={t('email')}
-          onChange={setValEmail}
           maxLength={32}
+          onChange={setValEmail}
           value={hasEmail ? valEmail : '<none>'}
         />
       </WrapToggle>
@@ -131,8 +131,8 @@ function IdentityInfo (props: Props): React.ReactElement<Props> {
         <Input
           isDisabled={!hasWeb}
           label={t('web')}
-          onChange={setValWeb}
           maxLength={32}
+          onChange={setValWeb}
           value={hasWeb ? valWeb : '<none>'}
         />
       </WrapToggle>
@@ -143,8 +143,8 @@ function IdentityInfo (props: Props): React.ReactElement<Props> {
         <Input
           isDisabled={!hasRiot}
           label={t('riot name')}
-          onChange={setValRiot}
           maxLength={32}
+          onChange={setValRiot}
           value={hasRiot ? valRiot : '<none>'}
         />
       </WrapToggle>
@@ -156,9 +156,9 @@ function IdentityInfo (props: Props): React.ReactElement<Props> {
           isDisabled={!hasImg}
           isError={hasImg && errImg}
           label={t('sha2 image hash')}
+          maxLength={66}
           onChange={_onChangeImg}
           placeholder={t('0x...')}
-          maxLength={66}
           value={hasImg ? valImg : '<none>'}
         />
       </WrapToggle>
@@ -170,9 +170,9 @@ function IdentityInfo (props: Props): React.ReactElement<Props> {
           isDisabled={!hasPgp}
           isError={hasPgp && errPgp}
           label={t('pgp hash')}
+          maxLength={42}
           onChange={_onChangePgp}
           placeholder={t('0x...')}
-          maxLength={42}
           value={hasPgp ? valPgp : '<none>'}
         />
       </WrapToggle>

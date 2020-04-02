@@ -26,18 +26,18 @@ export const styles = `
   ${proposedActionStyles}
 `;
 
-function ActionItem ({ className, children, accessory, idNumber, proposal, expandNested }: Props): React.ReactElement<Props> {
+function ActionItem ({ accessory, children, className, expandNested, idNumber, proposal }: Props): React.ReactElement<Props> {
   return (
     <Card className={className}>
       <div className='ui--Row'>
         <div className='ui--Row-base'>
           <div className='ui--Row-details'>
             <ProposedAction
+              expandNested={expandNested}
               idNumber={idNumber}
               isCollapsible
               proposal={proposal}
               withLinks={expandNested}
-              expandNested={expandNested}
             />
           </div>
           {accessory}
@@ -48,4 +48,4 @@ function ActionItem ({ className, children, accessory, idNumber, proposal, expan
   );
 }
 
-export default styled(ActionItem)`${styles}`;
+export default React.memo(styled(ActionItem)`${styles}`);

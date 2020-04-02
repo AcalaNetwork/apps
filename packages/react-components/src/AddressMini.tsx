@@ -25,6 +25,7 @@ interface Props extends BareProps {
   isPadded?: boolean;
   isShort?: boolean;
   label?: React.ReactNode;
+  labelBalance?: React.ReactNode;
   type?: KeyringItemType;
   value?: AccountId | AccountIndex | Address | string | null | Uint8Array;
   withAddress?: boolean;
@@ -35,7 +36,7 @@ interface Props extends BareProps {
   withShrink?: boolean;
 }
 
-function AddressMini ({ balance, bonded, children, className, iconInfo, isPadded = true, label, style, value, withAddress = true, withBalance = false, withBonded = false, withLockedVote = false, withName = true, withShrink = false }: Props): React.ReactElement<Props> | null {
+function AddressMini ({ balance, bonded, children, className, iconInfo, isPadded = true, label, labelBalance, style, value, withAddress = true, withBalance = false, withBonded = false, withLockedVote = false, withName = true, withShrink = false }: Props): React.ReactElement<Props> | null {
   if (!value) {
     return null;
   }
@@ -74,6 +75,7 @@ function AddressMini ({ balance, bonded, children, className, iconInfo, isPadded
         {withBalance && (
           <BalanceDisplay
             balance={balance}
+            label={labelBalance}
             params={value}
           />
         )}
@@ -92,7 +94,7 @@ function AddressMini ({ balance, bonded, children, className, iconInfo, isPadded
   );
 }
 
-export default styled(AddressMini)`
+export default React.memo(styled(AddressMini)`
   display: inline-block;
   padding: 0 0.25rem 0 1rem;
   text-align: left;
@@ -100,7 +102,7 @@ export default styled(AddressMini)`
 
   &.padded {
     display: inline-block;
-    padding: 0.25rem 1rem 0 0;
+    padding: 0 1rem 0 0;
   }
 
   &.summary {
@@ -166,4 +168,4 @@ export default styled(AddressMini)`
     position: relative;
     vertical-align: middle;
   }
-`;
+`);

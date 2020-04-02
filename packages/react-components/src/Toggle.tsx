@@ -18,7 +18,7 @@ interface Props extends BareProps {
   value?: boolean;
 }
 
-function Toggle ({ className, asSwitch = true, defaultValue, isDisabled, onChange, preventDefault, value, label }: Props): React.ReactElement<Props> {
+function Toggle ({ asSwitch = true, className, defaultValue, isDisabled, label, onChange, preventDefault, value }: Props): React.ReactElement<Props> {
   const _onChange = (event: React.FormEvent<HTMLInputElement>, { checked }: any): void => {
     if (preventDefault) {
       event.preventDefault();
@@ -33,8 +33,8 @@ function Toggle ({ className, asSwitch = true, defaultValue, isDisabled, onChang
       <label>{label}</label>
       <SUICheckbox
         checked={value}
-        disabled={isDisabled}
         defaultChecked={defaultValue}
+        disabled={isDisabled}
         onChange={_onChange}
         toggle={asSwitch}
       />
@@ -42,7 +42,7 @@ function Toggle ({ className, asSwitch = true, defaultValue, isDisabled, onChang
   );
 }
 
-export default styled(Toggle)`
+export default React.memo(styled(Toggle)`
   > label {
     display: inline-block;
     margin: 0 0.5rem;
@@ -56,4 +56,4 @@ export default styled(Toggle)`
   .ui.checkbox + label {
     color: rgba(78, 78, 78, 0.75);
   }
-`;
+`);

@@ -26,11 +26,11 @@ function LabelHelp ({ className, help, style }: Props): React.ReactElement<Props
       style={style}
     >
       <Icon
-        name='help circle'
-        data-tip
         data-for='controlled-trigger'
-        onMouseOver={_toggleTooltip}
+        data-tip
+        name='help circle'
         onMouseOut={_toggleTooltip}
+        onMouseOver={_toggleTooltip}
       />
       {isTooltipOpen && (
         <Tooltip
@@ -42,9 +42,9 @@ function LabelHelp ({ className, help, style }: Props): React.ReactElement<Props
   );
 }
 
-export default styled(LabelHelp)`
+export default React.memo(styled(LabelHelp)`
   cursor: help;
   display: inline-block;
   line-height: 1rem;
   margin: 0 0 0 0.25rem;
-`;
+`);
