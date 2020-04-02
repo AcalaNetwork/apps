@@ -1,4 +1,9 @@
-import polkadotRPC from '@polkadot/jsonrpc';
-import ormlRPC from '@orml/jsonrpc';
+import jsonrpc from '@polkadot/types/interfaces/jsonrpc';
+import acalaJsonRpc from '@acala-network/types/interfaces/jsonrpc';
+import ormlJsonRpc from '@orml/types/interfaces/jsonrpc';
 
-export default { ...polkadotRPC, ...ormlRPC };
+export default {
+  ...jsonrpc,
+  ...acalaJsonRpc,
+  ...ormlJsonRpc,
+}

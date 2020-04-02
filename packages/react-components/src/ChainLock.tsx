@@ -32,7 +32,7 @@ function calcLock (apiGenesis: string, genesisHash: string | null): boolean {
 
 function ChainLock ({ className, genesisHash, isDisabled, onChange, preventDefault }: Props): React.ReactElement<Props> | null {
   const { t } = useTranslation();
-  const { isDevelopment, api } = useApi();
+  const { api, isDevelopment } = useApi();
   const [isTiedToChain, setTied] = useState(calcLock(api.genesisHash.toHex(), genesisHash));
 
   useEffect((): void => {
@@ -66,6 +66,6 @@ function ChainLock ({ className, genesisHash, isDisabled, onChange, preventDefau
   );
 }
 
-export default styled(ChainLock)`
+export default React.memo(styled(ChainLock)`
   text-align: right;
-`;
+`);
