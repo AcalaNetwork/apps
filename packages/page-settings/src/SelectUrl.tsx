@@ -31,7 +31,7 @@ interface State extends StateUrl {
 const hijackSettings = (): void => {
   const storedSettings = store.get('settings') || {};
   const anySettings = uiSettings as any;
-  // anySettings._apiUrl = storedSettings.apiUrl || ENDPOINTS[0].value;
+
   anySettings._prefix = storedSettings.prefix || PREFIX_DEFAULT;
   anySettings._icon = storedSettings.icon || ICON_DEFAULT;
 };

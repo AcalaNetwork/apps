@@ -162,10 +162,9 @@ function createWebpack ({ alias = {}, context, name = 'index' }) {
         }
       }),
       new HtmlWebpackPlugin({
-        PAGE_TITLE: 'Polkadot/Substrate Portal',
+        PAGE_TITLE: 'Acala Portal',
         inject: true,
-        template: path.join(context, `${hasPublic ? 'public/' : ''}${name}.html`),
-        PAGE_TITLE: 'Acala Portal'
+        template: path.join(context, `${hasPublic ? 'public/' : ''}${name}.html`)
       }),
       new webpack.optimize.SplitChunksPlugin(),
       new MiniCssExtractPlugin({

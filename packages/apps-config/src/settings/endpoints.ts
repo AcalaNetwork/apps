@@ -23,15 +23,39 @@ if (process.env.WS_URL) {
 }
 
 const LIVE: Option[] = [
-  { text: 'Mandala TC2 Node 1 (Hosted by OnFinality)', value: 'wss://node-6640517791634960384.jm.onfinality.io/ws', info: 'substrate' },
-  { text: 'Mandala TC2 Node 2 (Hosted by OnFinality)', value: 'wss://node-6640517791654576128.jm.onfinality.io/ws', info: 'substrate' },
-  { text: 'Mandala TC2 Node 3 (Hosted by OnFinality)', value: 'wss://node-6640517791639154689.rz.onfinality.io/ws', info: 'substrate' },
-  { text: 'Mandala TC2 Node 4 (Hosted by Acala)', value: 'wss://testnet-node-1.acala.laminar.one/ws', info: 'substrate' },
-  { text: 'Mandala TC1 (Hosted by OnFinality)', value: 'wss://node-6635400830093635584.jm.onfinality.io/ws', info: 'substrate' },
+  {
+    info: 'substrate',
+    text: 'Mandala TC2 Node 1 (Hosted by OnFinality)',
+    value: 'wss://node-6640517791634960384.jm.onfinality.io/ws'
+  },
+  {
+    info: 'substrate',
+    text: 'Mandala TC2 Node 2 (Hosted by OnFinality)',
+    value: 'wss://node-6640517791654576128.jm.onfinality.io/ws'
+  },
+  {
+    info: 'substrate',
+    text: 'Mandala TC2 Node 3 (Hosted by OnFinality)',
+    value: 'wss://node-6640517791639154689.rz.onfinality.io/ws'
+  },
+  {
+    info: 'substrate',
+    text: 'Mandala TC2 Node 4 (Hosted by Acala)',
+    value: 'wss://testnet-node-1.acala.laminar.one/ws'
+  },
+  {
+    info: 'substrate',
+    text: 'Mandala TC1 (Hosted by OnFinality)',
+    value: 'wss://node-6635400830093635584.jm.onfinality.io/ws'
+  }
 ];
 
 const TEST: Option[] = [
-  { text: 'Mandala TC3 Node 1 (Hosted by OnFinality)', value: 'wss://node-6651312618927640576.jm.onfinality.io/ws?apikey=d4309ac5-f9b4-43f1-8cd7-e3501b444dce', info: 'substrate' },
+  {
+    info: 'substrate',
+    text: 'Mandala TC3 Node 1 (Hosted by OnFinality)',
+    value: 'wss://node-6651312618927640576.jm.onfinality.io/ws?apikey=d4309ac5-f9b4-43f1-8cd7-e3501b444dce'
+  }
 ];
 
 let endpoints = [

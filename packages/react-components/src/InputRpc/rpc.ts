@@ -5,5 +5,5 @@ import ormlJsonRpc from '@orml/types/interfaces/jsonrpc';
 export default {
   ...jsonrpc,
   ...acalaJsonRpc,
-  ...ormlJsonRpc,
-}
+  ...ormlJsonRpc
+};

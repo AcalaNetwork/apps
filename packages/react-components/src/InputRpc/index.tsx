@@ -50,7 +50,7 @@ function InputRpc ({ className, defaultValue, help, label, onChange, style, with
     }
 
     const optionsMethod = methodOptions(api, section);
-    console.log(section, optionsMethod);
+
     setOptionsMethod(optionsMethod);
     _onMethodChange(jsonrpc[section][optionsMethod[0].value]);
   };
