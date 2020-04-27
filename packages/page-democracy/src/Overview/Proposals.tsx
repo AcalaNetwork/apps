@@ -4,7 +4,7 @@
 
 import { DeriveProposal } from '@polkadot/api-derive/types';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Table } from '@polkadot/react-components';
 import { useApi, useCall } from '@polkadot/react-hooks';
 
@@ -20,27 +20,25 @@ function Proposals ({ className }: Props): React.ReactElement<Props> {
   const { api } = useApi();
   const proposals = useCall<DeriveProposal[]>(api.derive.democracy.proposals, []);
 
+  const header = useMemo(() => [
+    [t('proposals'), 'start', 2],
+    [t('proposer'), 'address'],
+    [t('locked')],
+    [undefined, undefined, 3]
+  ], [t]);
+
   return (
-    <Table className={className}>
-      <Table.Head>
-        <th
-          className='start'
-          colSpan={2}
-        >
-          <h1>{t('proposals')}</h1>
-        </th>
-        <th className='address'>{t('proposer')}</th>
-        <th>{t('locked')}</th>
-        <th colSpan={3}>&nbsp;</th>
-      </Table.Head>
-      <Table.Body empty={proposals && t('No active proposals')}>
-        {proposals?.map((proposal): React.ReactNode => (
-          <ProposalDisplay
-            key={proposal.index.toString()}
-            value={proposal}
-          />
-        ))}
-      </Table.Body>
+    <Table
+      className={className}
+      empty={proposals && t('No active proposals')}
+      header={header}
+    >
+      {proposals?.map((proposal): React.ReactNode => (
+        <ProposalDisplay
+          key={proposal.index.toString()}
+          value={proposal}
+        />
+      ))}
     </Table>
   );
 }

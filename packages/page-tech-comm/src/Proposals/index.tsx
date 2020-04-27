@@ -5,7 +5,7 @@
 import { Hash } from '@polkadot/types/interfaces';
 import { ComponentProps as Props } from '../types';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Button, Table } from '@polkadot/react-components';
 
 import { useTranslation } from '../translate';
@@ -15,6 +15,14 @@ import Propose from './Propose';
 function Proposals ({ className, isMember, members, prime, proposals }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
 
+  const header = useMemo(() => [
+    [t('proposals'), 'start', 2],
+    [t('threshold')],
+    [t('aye'), 'address'],
+    [t('nay'), 'address'],
+    []
+  ], [t]);
+
   return (
     <div className={className}>
       <Button.Group>
@@ -23,28 +31,17 @@ function Proposals ({ className, isMember, members, prime, proposals }: Props): 
           members={members}
         />
       </Button.Group>
-      <Table>
-        <Table.Head>
-          <th
-            className='start'
-            colSpan={2}
-          >
-            <h1>{t('proposals')}</h1>
-          </th>
-          <th>{t('threshold')}</th>
-          <th className='address'>{t('aye')}</th>
-          <th className='address'>{t('nay')}</th>
-          <th>&nbsp;</th>
-        </Table.Head>
-        <Table.Body empty={proposals && t('No committee proposals')}>
-          {proposals?.map((hash: Hash): React.ReactNode => (
-            <Proposal
-              imageHash={hash.toHex()}
-              key={hash.toHex()}
-              prime={prime}
-            />
-          ))}
-        </Table.Body>
+      <Table
+        empty={proposals && t('No committee proposals')}
+        header={header}
+      >
+        {proposals?.map((hash: Hash): React.ReactNode => (
+          <Proposal
+            imageHash={hash.toHex()}
+            key={hash.toHex()}
+            prime={prime}
+          />
+        ))}
       </Table>
     </div>
   );

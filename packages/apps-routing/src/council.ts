@@ -2,12 +2,12 @@
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 
-import { Routes } from './types';
+import { Route } from './types';
 
 import Council, { useCounter } from '@polkadot/app-council';
 
-export default ([
-  {
+export default function create (t: (key: string, text: string, options: { ns: string }) => string): Route {
+  return {
     Component: Council,
     display: {
       needsApi: [
@@ -17,11 +17,9 @@ export default ([
         ]
       ]
     },
-    i18n: {
-      defaultValue: 'Council'
-    },
     icon: 'building',
     name: 'council',
+    text: t('nav.council', 'Council', { ns: 'apps-routing' }),
     useCounter
-  }
-] as Routes);
+  };
+}

@@ -24,10 +24,5 @@ export default {
   Proof: {
     leafHash: 'H256',
     sortedHashes: 'H256'
-  },
-  // Overwrites to Substrate types
-  Address: 'AccountId',
-  LookupSource: 'AccountId',
-  // previous substrate versions
-  ReferendumInfo: 'ReferendumInfoTo239'
+  }
 };

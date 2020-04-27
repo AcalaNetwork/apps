@@ -1,6 +1,10 @@
+// Copyright 2017-2020 @polkadot/react-components authors & contributors
+// This software may be modified and distributed under the terms
+// of the Apache-2.0 license. See the LICENSE file for details.
+
 import jsonrpc from '@polkadot/types/interfaces/jsonrpc';
 import acalaJsonRpc from '@acala-network/types/interfaces/jsonrpc';
-import ormlJsonRpc from '@open-web3/orml-types/interfaces/jsonrpc'
+import ormlJsonRpc from '@open-web3/orml-types/interfaces/jsonrpc';
 
 export default {
   ...jsonrpc,

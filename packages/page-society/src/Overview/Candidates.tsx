@@ -5,7 +5,7 @@
 import { DeriveSocietyCandidate } from '@polkadot/api-derive/types';
 import { OwnMembers } from '../types';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Table } from '@polkadot/react-components';
 import { useApi, useCall } from '@polkadot/react-hooks';
 
@@ -21,26 +21,28 @@ function Candidates ({ allMembers, className, isMember, ownMembers }: Props): Re
   const { api } = useApi();
   const candidates = useCall<DeriveSocietyCandidate[]>(api.derive.society.candidates, []);
 
+  const header = useMemo(() => [
+    [t('candidates'), 'start'],
+    [t('kind')],
+    [t('value')],
+    [t('votes'), 'start']
+  ], [t]);
+
   return (
-    <Table className={className}>
-      <Table.Head>
-        <th className='start'><h1>{t('candidates')}</h1></th>
-        <th>{t('kind')}</th>
-        <th>{t('value')}</th>
-        <th className='start'>{t('votes')}</th>
-        <th>&nbsp;</th>
-      </Table.Head>
-      <Table.Body empty={candidates && t('No candidates')}>
-        {candidates?.map((candidate): React.ReactNode => (
-          <Candidate
-            allMembers={allMembers}
-            isMember={isMember}
-            key={candidate.accountId.toString()}
-            ownMembers={ownMembers}
-            value={candidate}
-          />
-        ))}
-      </Table.Body>
+    <Table
+      className={className}
+      empty={candidates && t('No candidates')}
+      header={header}
+    >
+      {candidates?.map((candidate): React.ReactNode => (
+        <Candidate
+          allMembers={allMembers}
+          isMember={isMember}
+          key={candidate.accountId.toString()}
+          ownMembers={ownMembers}
+          value={candidate}
+        />
+      ))}
     </Table>
   );
 }

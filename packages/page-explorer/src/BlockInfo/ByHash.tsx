@@ -24,50 +24,49 @@ interface Props {
 function BlockByHash ({ className, value }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
   const { api } = useApi();
-  const events = useCall<EventRecord[]>(api.query.system.events.at as any, [value], { isSingle: true });
-  const getBlock = useCall<SignedBlock>(api.rpc.chain.getBlock as any, [value], { isSingle: true });
-  const getHeader = useCall<HeaderExtended>(api.derive.chain.getHeader as any, [value]);
+  const events = useCall<EventRecord[]>(api.query.system.events.at, [value], { isSingle: true });
+  const getBlock = useCall<SignedBlock>(api.rpc.chain.getBlock, [value], { isSingle: true });
+  const getHeader = useCall<HeaderExtended>(api.derive.chain.getHeader, [value]);
 
   const blockNumber = getHeader?.number.unwrap();
   const parentHash = getHeader?.parentHash.toHex();
 
   return (
     <div className={className}>
-      <Table isFixed>
-        <Table.Head>
-          <th
-            className='start'
-            colSpan={getHeader ? 1 : 6}
-          >
-            <h1>{blockNumber ? formatNumber(blockNumber) : '...'}</h1>
-          </th>
-          {getHeader && (
-            <>
-              <th className='start'>{t('hash')}</th>
-              <th className='start'>{t('parent')}</th>
-              <th className='start'>{t('extrinsics')}</th>
-              <th className='start'>{t('state')}</th>
-              <th>&nbsp;</th>
-            </>
-          )}
-        </Table.Head>
-        <Table.Body>
-          {getBlock && !getBlock.isEmpty && getHeader && !getHeader.isEmpty && (
-            <tr>
-              <td className='address'>{getHeader.author && <AddressMini value={getHeader.author} />}</td>
-              <td className='hash overflow'>{getHeader.hash.toHex()}</td>
-              <td className='hash overflow'><Link to={`/explorer/query/${parentHash}`}>{parentHash}</Link></td>
-              <td className='hash overflow'>{getHeader.extrinsicsRoot.toHex()}</td>
-              <td className='hash overflow'>{getHeader.stateRoot.toHex()}</td>
-              <td>
-                <LinkExternal
-                  data={value}
-                  type='block'
-                />
-              </td>
-            </tr>
-          )}
-        </Table.Body>
+      <Table
+        header={
+          getHeader
+            ? [
+              [formatNumber(blockNumber), 'start', 1],
+              [t('hash'), 'start'],
+              [t('parent'), 'start'],
+              [t('extrinsics'), 'start'],
+              [t('state'), 'start'],
+              []
+            ]
+            : [['...', 'start', 6]]
+        }
+        isFixed
+      >
+        {getBlock && !getBlock.isEmpty && getHeader && !getHeader.isEmpty && (
+          <tr>
+            <td className='address'>
+              {getHeader.author && (
+                <AddressMini value={getHeader.author} />
+              )}
+            </td>
+            <td className='hash overflow'>{getHeader.hash.toHex()}</td>
+            <td className='hash overflow'><Link to={`/explorer/query/${parentHash}`}>{parentHash}</Link></td>
+            <td className='hash overflow'>{getHeader.extrinsicsRoot.toHex()}</td>
+            <td className='hash overflow'>{getHeader.stateRoot.toHex()}</td>
+            <td>
+              <LinkExternal
+                data={value}
+                type='block'
+              />
+            </td>
+          </tr>
+        )}
       </Table>
       {getBlock && getHeader && (
         <>

@@ -4,7 +4,7 @@
 
 import { BlockNumber, EventRecord, Extrinsic } from '@polkadot/types/interfaces';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Table } from '@polkadot/react-components';
 
 import { useTranslation } from '../translate';
@@ -21,37 +21,28 @@ interface Props {
 function Extrinsics ({ blockNumber, className, events, label, value }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
 
+  const header = useMemo(() => [
+    [label || t('extrinsics'), 'start', 2],
+    [t('events'), 'start', 2],
+    [t('signer'), 'address']
+  ], [label, t]);
+
   return (
     <Table
       className={className}
+      empty={t('No pending extrinsics are in the queue')}
+      header={header}
       isFixed
     >
-      <Table.Head>
-        <th
-          className='start'
-          colSpan={2}
-        >
-          <h1>{label || t('extrinsics')}</h1>
-        </th>
-        <th
-          className='start'
-          colSpan={2}
-        >
-          {t('events')}
-        </th>
-        <th className='address'>{t('signer')}</th>
-      </Table.Head>
-      <Table.Body empty={t('No pending extrinsics are in the queue')}>
-        {value?.map((extrinsic, index): React.ReactNode =>
-          <ExtrinsicDisplay
-            blockNumber={blockNumber}
-            events={events}
-            index={index}
-            key={`extrinsic:${index}`}
-            value={extrinsic}
-          />
-        )}
-      </Table.Body>
+      {value?.map((extrinsic, index): React.ReactNode =>
+        <ExtrinsicDisplay
+          blockNumber={blockNumber}
+          events={events}
+          index={index}
+          key={`extrinsic:${index}`}
+          value={extrinsic}
+        />
+      )}
     </Table>
   );
 }

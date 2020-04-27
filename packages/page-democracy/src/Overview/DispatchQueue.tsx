@@ -4,7 +4,7 @@
 
 import { DeriveDispatch } from '@polkadot/api-derive/types';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Table } from '@polkadot/react-components';
 import { useApi, useCall } from '@polkadot/react-hooks';
 
@@ -18,28 +18,26 @@ interface Props {
 function DispatchQueue ({ className }: Props): React.ReactElement<Props> | null {
   const { t } = useTranslation();
   const { api } = useApi();
-  const queued = useCall<DeriveDispatch[]>(api.derive.democracy.dispatchQueue as any, []);
+  const queued = useCall<DeriveDispatch[]>(api.derive.democracy.dispatchQueue, []);
+
+  const header = useMemo(() => [
+    [t('dispatch queue'), 'start', 2],
+    [t('enact')],
+    [undefined, undefined, 2]
+  ], [t]);
 
   return (
-    <Table className={className}>
-      <Table.Head>
-        <th
-          className='start'
-          colSpan={2}
-        >
-          <h1>{t('dispatch queue')}</h1>
-        </th>
-        <th>{t('enact')}</th>
-        <th colSpan={2}>&nbsp;</th>
-      </Table.Head>
-      <Table.Body empty={queued && t('Nothing queued for execution')}>
-        {queued?.map((entry): React.ReactNode => (
-          <DispatchEntry
-            key={entry.index.toString()}
-            value={entry}
-          />
-        ))}
-      </Table.Body>
+    <Table
+      className={className}
+      empty={queued && t('Nothing queued for execution')}
+      header={header}
+    >
+      {queued?.map((entry): React.ReactNode => (
+        <DispatchEntry
+          key={entry.index.toString()}
+          value={entry}
+        />
+      ))}
     </Table>
   );
 }

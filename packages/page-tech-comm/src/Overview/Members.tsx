@@ -4,7 +4,7 @@
 
 import { AccountId } from '@polkadot/types/interfaces';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { AddressSmall, Table, Tag } from '@polkadot/react-components';
 
 import { useTranslation } from '../translate';
@@ -18,35 +18,33 @@ interface Props {
 function Members ({ className, members, prime }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
 
+  const header = useMemo(() => [
+    [t('members'), 'start', 3]
+  ], [t]);
+
   return (
-    <Table className={className}>
-      <Table.Head>
-        <th
-          className='start'
-          colSpan={3}
-        >
-          <h1>{t('members')}</h1>
-        </th>
-      </Table.Head>
-      <Table.Body empty={members && t('No members found')}>
-        {members?.map((accountId): React.ReactNode => (
-          <tr key={accountId.toString()}>
-            <td className='address'>
-              <AddressSmall value={accountId} />
-            </td>
-            <td>
-              {prime?.eq(accountId) && (
-                <Tag
-                  color='green'
-                  hover={t('Committee prime member, default voting')}
-                  label={t('prime member')}
-                />
-              )}
-            </td>
-            <td className='all'>&nbsp;</td>
-          </tr>
-        ))}
-      </Table.Body>
+    <Table
+      className={className}
+      empty={members && t('No members found')}
+      header={header}
+    >
+      {members?.map((accountId): React.ReactNode => (
+        <tr key={accountId.toString()}>
+          <td className='address'>
+            <AddressSmall value={accountId} />
+          </td>
+          <td>
+            {prime?.eq(accountId) && (
+              <Tag
+                color='green'
+                hover={t('Committee prime member, default voting')}
+                label={t('prime member')}
+              />
+            )}
+          </td>
+          <td className='all'>&nbsp;</td>
+        </tr>
+      ))}
     </Table>
   );
 }
