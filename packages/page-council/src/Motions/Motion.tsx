@@ -5,14 +5,15 @@
 import { AccountId, BlockNumber } from '@polkadot/types/interfaces';
 import { DeriveCollectiveProposal } from '@polkadot/api-derive/types';
 
-import BN from 'bn.js';
 import React from 'react';
 import ProposalCell from '@polkadot/app-democracy/Overview/ProposalCell';
-import { AddressMini, LinkExternal } from '@polkadot/react-components';
+import { LinkExternal } from '@polkadot/react-components';
 import { useApi, useCall } from '@polkadot/react-hooks';
 import { BlockToTime } from '@polkadot/react-query';
 import { formatNumber } from '@polkadot/util';
 
+import Close from './Close';
+import Votes from './Votes';
 import Voting from './Voting';
 
 interface Props {
@@ -25,7 +26,7 @@ interface Props {
 
 function Motion ({ className, isMember, members, motion: { hash, proposal, votes }, prime }: Props): React.ReactElement<Props> | null {
   const { api } = useApi();
-  const bestNumber = useCall<BlockNumber>(api.derive.chain.bestNumber, []) || new BN(0);
+  const bestNumber = useCall<BlockNumber>(api.derive.chain.bestNumber, []);
 
   if (!votes) {
     return null;
@@ -40,44 +41,40 @@ function Motion ({ className, isMember, members, motion: { hash, proposal, votes
         imageHash={hash}
         proposal={proposal}
       />
-      <td className='number'>
+      <td className='number together'>
         {formatNumber(ayes.length)}/{formatNumber(threshold)}
       </td>
       <td className='number together'>
-        {end && (
+        {bestNumber && end && (
           <>
             <BlockToTime blocks={end.sub(bestNumber)} />
             #{formatNumber(end)}
           </>
         )}
       </td>
-      <td className='address'>
-        {ayes.map((address, index): React.ReactNode => (
-          <AddressMini
-            key={`${index}:${address}`}
-            value={address}
-            withBalance={false}
-          />
-        ))}
-      </td>
-      <td className='address'>
-        {nays.map((address, index): React.ReactNode => (
-          <AddressMini
-            key={`${index}:${address}`}
-            value={address}
-            withBalance={false}
-          />
-        ))}
-      </td>
+      <Votes votes={ayes} />
+      <Votes votes={nays} />
       <td className='button'>
-        <Voting
-          hash={hash}
-          idNumber={index}
-          isDisabled={!isMember}
-          members={members}
-          prime={prime}
-          proposal={proposal}
-        />
+        {bestNumber && (
+          end.gt(bestNumber)
+            ? (
+              <Voting
+                hash={hash}
+                idNumber={index}
+                isDisabled={!isMember}
+                members={members}
+                prime={prime}
+                proposal={proposal}
+              />
+            )
+            : (
+              <Close
+                hash={hash}
+                idNumber={index}
+                proposal={proposal}
+              />
+            )
+        )}
       </td>
       <td className='mini'>
         <LinkExternal

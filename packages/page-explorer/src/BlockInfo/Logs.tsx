@@ -5,7 +5,7 @@
 import { DigestItem } from '@polkadot/types/interfaces';
 import { Codec, TypeDef } from '@polkadot/types/types';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Struct, Tuple, Raw, Vec, getTypeDef } from '@polkadot/types';
 import { Expander, Table } from '@polkadot/react-components';
 import Params from '@polkadot/react-params';
@@ -103,22 +103,22 @@ function Logs (props: Props): React.ReactElement<Props> | null {
   const { value } = props;
   const { t } = useTranslation();
 
+  const header = useMemo(() => [[t('logs'), 'start']], [t]);
+
   return (
-    <Table>
-      <Table.Head>
-        <th className='start'><h1>{t('logs')}</h1></th>
-      </Table.Head>
-      <Table.Body>
-        {value?.map((log, index) => (
-          <tr key={`log:${index}`}>
-            <td className='overflow'>
-              <Expander summary={log.type.toString()}>
-                {formatItem(log)}
-              </Expander>
-            </td>
-          </tr>
-        ))}
-      </Table.Body>
+    <Table
+      empty={t('No logs available')}
+      header={header}
+    >
+      {value?.map((log, index) => (
+        <tr key={`log:${index}`}>
+          <td className='overflow'>
+            <Expander summary={log.type.toString()}>
+              {formatItem(log)}
+            </Expander>
+          </td>
+        </tr>
+      ))}
     </Table>
   );
 }

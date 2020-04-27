@@ -4,22 +4,29 @@
 
 import { KeyringAddress } from '@polkadot/ui-keyring/types';
 import { ComponentProps as Props } from '../types';
+import { SortedAccount } from './types';
 
-import React, { useEffect, useState } from 'react';
+import BN from 'bn.js';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import keyring from '@polkadot/ui-keyring';
 import { getLedger, isLedger } from '@polkadot/react-api';
 import { useAccounts, useFavorites, useToggle } from '@polkadot/react-hooks';
+import { FormatBalance } from '@polkadot/react-query';
 import { Button, Input, Table } from '@polkadot/react-components';
 
 import { useTranslation } from '../translate';
 import CreateModal from './modals/Create';
 import ImportModal from './modals/Import';
+import Multisig from './modals/MultisigCreate';
 import QrModal from './modals/Qr';
 import Account from './Account';
 import Banner from './Banner';
 
-type SortedAccount = { address: string; isFavorite: boolean };
+interface Balances {
+  accounts: Record<string, BN>;
+  balanceTotal?: BN;
+}
 
 const STORE_FAVS = 'accounts:favorites';
 
@@ -36,35 +43,115 @@ async function queryLedger (): Promise<void> {
   }
 }
 
+function expandList (mapped: SortedAccount[], entry: SortedAccount): SortedAccount[] {
+  mapped.push(entry);
+
+  entry.children.forEach((entry): void => {
+    expandList(mapped, entry);
+  });
+
+  return mapped;
+}
+
+function sortAccounts (addresses: string[], favorites: string[]): SortedAccount[] {
+  const mapped = addresses
+    .map((address) => keyring.getAccount(address))
+    .filter((account): account is KeyringAddress => !!account)
+    .map((account): SortedAccount => ({
+      account,
+      children: [],
+      isFavorite: favorites.includes(account.address)
+    }))
+    .sort((a, b) => (a.account.meta.whenCreated || 0) - (b.account.meta.whenCreated || 0));
+
+  return mapped
+    .filter((entry): boolean => {
+      const parentAddress = entry.account.meta.parentAddress;
+
+      if (parentAddress) {
+        const parent = mapped.find(({ account: { address } }) => address === parentAddress);
+
+        if (parent) {
+          parent.children.push(entry);
+
+          return false;
+        }
+      }
+
+      return true;
+    })
+    .reduce(expandList, [])
+    .sort((a, b): number =>
+      a.isFavorite === b.isFavorite
+        ? 0
+        : b.isFavorite
+          ? 1
+          : -1
+    );
+}
+
 function Overview ({ className, onStatusChange }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
   const { allAccounts } = useAccounts();
   const [isCreateOpen, toggleCreate] = useToggle();
   const [isImportOpen, toggleImport] = useToggle();
+  const [isMultisigOpen, toggleMultisig] = useToggle();
   const [isQrOpen, toggleQr] = useToggle();
   const [favorites, toggleFavorite] = useFavorites(STORE_FAVS);
+  const [{ balanceTotal }, setBalances] = useState<Balances>({ accounts: {} });
   const [sortedAccounts, setSortedAccounts] = useState<SortedAccount[]>([]);
-  const [filter, setFilter] = useState<string>('');
+  const [filterOn, setFilter] = useState<string>('');
 
   useEffect((): void => {
     setSortedAccounts(
-      allAccounts
-        .map((address): SortedAccount => ({ address, isFavorite: favorites.includes(address) }))
-        .sort((a, b): number => {
-          const accA = keyring.getAccount(a.address) as KeyringAddress;
-          const accB = keyring.getAccount(b.address) as KeyringAddress;
-
-          return (accA.meta.whenCreated || 0) - (accB.meta.whenCreated || 0);
-        })
-        .sort((a, b): number =>
-          a.isFavorite === b.isFavorite
-            ? 0
-            : b.isFavorite
-              ? 1
-              : -1
-        )
+      sortAccounts(allAccounts, favorites)
     );
   }, [allAccounts, favorites]);
+
+  const _setBalance = useCallback(
+    (account: string, balance: BN) =>
+      setBalances(({ accounts }: Balances): Balances => {
+        accounts[account] = balance;
+
+        return {
+          accounts,
+          balanceTotal: Object.values(accounts).reduce((total: BN, value: BN) => total.add(value), new BN(0))
+        };
+      }),
+    []
+  );
+
+  const header = useMemo(() => [
+    [t('accounts'), 'start', 3],
+    [t('parent'), 'address'],
+    [t('type')],
+    [t('tags'), 'start'],
+    [t('transactions')],
+    [t('balances')],
+    [undefined, undefined, 2]
+  ], [t]);
+
+  const footer = useMemo(() => (
+    <tr>
+      <td colSpan={7} />
+      <td className='number'>
+        {balanceTotal && <FormatBalance value={balanceTotal} />}
+      </td>
+      <td colSpan={2} />
+    </tr>
+  ), [balanceTotal]);
+
+  const filter = useMemo(() => (
+    <div className='filter--tags'>
+      <Input
+        autoFocus
+        isFull
+        label={t('filter by name or tags')}
+        onChange={setFilter}
+        value={filterOn}
+      />
+    </div>
+  ), [filterOn, t]);
 
   return (
     <div className={className}>
@@ -78,6 +165,12 @@ function Overview ({ className, onStatusChange }: Props): React.ReactElement<Pro
       {isImportOpen && (
         <ImportModal
           onClose={toggleImport}
+          onStatusChange={onStatusChange}
+        />
+      )}
+      {isMultisigOpen && (
+        <Multisig
+          onClose={toggleMultisig}
           onStatusChange={onStatusChange}
         />
       )}
@@ -115,42 +208,29 @@ function Overview ({ className, onStatusChange }: Props): React.ReactElement<Pro
             />
           </>
         )}
+        <Button.Or />
+        <Button
+          icon='add'
+          label={t('Multisig')}
+          onClick={toggleMultisig}
+        />
       </Button.Group>
-      <Table>
-        <Table.Head filter={
-          <div className='filter--tags'>
-            <Input
-              autoFocus
-              isFull
-              label={t('filter by name or tags')}
-              onChange={setFilter}
-              value={filter}
-            />
-          </div>
-        }>
-          <th
-            className='start'
-            colSpan={3}
-          >
-            <h1>{t('accounts')}</h1>
-          </th>
-          <th>{t('type')}</th>
-          <th className='start'>{t('tags')}</th>
-          <th>{t('transactions')}</th>
-          <th>{t('balances')}</th>
-          <th colSpan={2}>&nbsp;</th>
-        </Table.Head>
-        <Table.Body empty={t('no accounts yet, create or import an existing')}>
-          {sortedAccounts.map(({ address, isFavorite }): React.ReactNode => (
-            <Account
-              address={address}
-              filter={filter}
-              isFavorite={isFavorite}
-              key={address}
-              toggleFavorite={toggleFavorite}
-            />
-          ))}
-        </Table.Body>
+      <Table
+        empty={t('no accounts yet, create or import an existing')}
+        filter={filter}
+        footer={footer}
+        header={header}
+      >
+        {sortedAccounts.map(({ account, isFavorite }): React.ReactNode => (
+          <Account
+            account={account}
+            filter={filterOn}
+            isFavorite={isFavorite}
+            key={account.address}
+            setBalance={_setBalance}
+            toggleFavorite={toggleFavorite}
+          />
+        ))}
       </Table>
     </div>
   );

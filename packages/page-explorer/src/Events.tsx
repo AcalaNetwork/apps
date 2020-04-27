@@ -4,7 +4,7 @@
 
 import { EventRecord } from '@polkadot/types/interfaces';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Table } from '@polkadot/react-components';
 
 import Event from './Event';
@@ -20,26 +20,28 @@ interface Props {
 function Events ({ emptyLabel, eventClassName, events, label }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
 
+  const header = useMemo(() => [
+    [label || t('recent events'), 'start']
+  ], [label, t]);
+
   return (
-    <Table>
-      <Table.Head>
-        <th className='start'><h1>{label || t('recent events')}</h1></th>
-      </Table.Head>
-      <Table.Body empty={emptyLabel || t('No events available')}>
-        {events
-          .filter(({ event: { method, section } }): boolean => !!method && !!section)
-          .map((event: EventRecord, index): React.ReactNode => (
-            <tr
-              className={eventClassName}
-              key={`event:${index}`}
-            >
-              <td className='overflow'>
-                <Event value={event} />
-              </td>
-            </tr>
-          ))
-        }
-      </Table.Body>
+    <Table
+      empty={emptyLabel || t('No events available')}
+      header={header}
+    >
+      {events
+        .filter(({ event: { method, section } }): boolean => !!method && !!section)
+        .map((event: EventRecord, index): React.ReactNode => (
+          <tr
+            className={eventClassName}
+            key={`event:${index}`}
+          >
+            <td className='overflow'>
+              <Event value={event} />
+            </td>
+          </tr>
+        ))
+      }
     </Table>
   );
 }

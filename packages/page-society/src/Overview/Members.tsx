@@ -4,7 +4,7 @@
 
 import { DeriveSociety, DeriveSocietyMember } from '@polkadot/api-derive/types';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Table } from '@polkadot/react-components';
 import { useApi, useCall } from '@polkadot/react-hooks';
 
@@ -28,26 +28,24 @@ function Members ({ className, info }: Props): React.ReactElement<Props> {
     );
   }, [info, members]);
 
+  const header = useMemo(() => [
+    [t('members'), 'start', 3],
+    [t('strikes')]
+  ], [t]);
+
   return (
-    <Table className={className}>
-      <Table.Head>
-        <th
-          className='start'
-          colSpan={3}
-        >
-          <h1>{t('members')}</h1>
-        </th>
-        <th>{t('strikes')}</th>
-      </Table.Head>
-      <Table.Body empty={info && t('No active members')}>
-        {filtered.map((member): React.ReactNode => (
-          <Member
-            isHead={info?.head?.eq(member.accountId)}
-            key={member.accountId.toString()}
-            value={member}
-          />
-        ))}
-      </Table.Body>
+    <Table
+      className={className}
+      empty={info && t('No active members')}
+      header={header}
+    >
+      {filtered.map((member): React.ReactNode => (
+        <Member
+          isHead={info?.head?.eq(member.accountId)}
+          key={member.accountId.toString()}
+          value={member}
+        />
+      ))}
     </Table>
   );
 }

@@ -19,8 +19,6 @@ import { useTranslation } from '../translate';
 import Summary from './Summary';
 import Validator from './Validator';
 
-const PERBILL = new BN(1_000_000_000);
-
 interface Props {
   className?: string;
 }
@@ -34,8 +32,11 @@ interface AllInfo {
 
 type SortBy = 'rankOverall' | 'rankBondOwn' | 'rankBondOther' | 'rankBondTotal' | 'rankComm';
 
+const PERBILL = new BN(1_000_000_000);
+
 function sortValidators (list: ValidatorInfo[]): ValidatorInfo[] {
   return list
+    .filter((a) => a.bondTotal.gtn(0))
     .sort((a, b): number => b.commissionPer - a.commissionPer)
     .map((info, index): ValidatorInfo => {
       info.rankComm = index + 1;
@@ -171,14 +172,12 @@ function Targets ({ className }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
   const { api } = useApi();
   const { allAccounts } = useAccounts();
-  const lastEra = useCall<BN>(api.derive.session.indexes as any, [], {
+  const lastEra = useCall<BN>(api.derive.session.indexes, [], {
     defaultValue: new BN(0),
-    transform: ({ activeEra }: DeriveSessionIndexes) =>
-      activeEra.gtn(0) ? activeEra.subn(1) : new BN(0)
+    transform: ({ activeEra }: DeriveSessionIndexes) => activeEra.gtn(0) ? activeEra.subn(1) : new BN(0)
   }) || new BN(0);
   const lastReward = useCall<BN>(api.query.staking.erasValidatorReward, [lastEra], {
-    transform: (optBalance: Option<Balance>) =>
-      optBalance.unwrapOrDefault()
+    transform: (optBalance: Option<Balance>) => optBalance.unwrapOrDefault()
   });
   const [_amount, setAmount] = useState<BN | undefined>(new BN(1_000));
   const electedInfo = useCall<DeriveStakingElected>(api.derive.staking.electedInfo, []);
@@ -211,6 +210,28 @@ function Targets ({ className }: Props): React.ReactElement<Props> {
     }
   }, [allAccounts, amount, electedInfo, favorites, lastReward, sortBy, sortFromMax]);
 
+  const header = useMemo(() => [
+    [t('validators'), 'start', 3],
+    ...['rankComm', 'rankBondTotal', 'rankBondOwn', 'rankBondOther', 'rankOverall'].map((header) => [
+      <>{labels[header]}<Icon name={sortBy === header ? (sortFromMax ? 'chevron down' : 'chevron up') : 'minus'} /></>,
+      `isClickable ${sortBy === header && 'ui--highlight--border'} number`,
+      1,
+      (): void => _sort(header as 'rankComm')
+    ]),
+    []
+  ], [_sort, labels, sortBy, sortFromMax, t]);
+
+  const filter = useMemo(() => (
+    <InputBalance
+      className='balanceInput'
+      help={t('The amount that will be used on a per-validator basis to calculate rewards for that validator.')}
+      isFull
+      label={t('amount to use for estimation')}
+      onChange={setAmount}
+      value={_amount}
+    />
+  ), [_amount, t]);
+
   return (
     <div className={className}>
       <Summary
@@ -219,41 +240,18 @@ function Targets ({ className }: Props): React.ReactElement<Props> {
         numValidators={validators.length}
         totalStaked={totalStaked}
       />
-      <Table>
-        <Table.Head filter={
-          <InputBalance
-            className='balanceInput'
-            help={t('The amount that will be used on a per-validator basis to calculate rewards for that validator.')}
-            isFull
-            label={t('amount to use for estimation')}
-            onChange={setAmount}
-            value={_amount}
+      <Table
+        empty={sorted && t('No active validators to check for rewards available')}
+        filter={filter}
+        header={header}
+      >
+        {sorted?.map((info): React.ReactNode =>
+          <Validator
+            info={info}
+            key={info.key}
+            toggleFavorite={toggleFavorite}
           />
-        }>
-          <th
-            className='start'
-            colSpan={3}
-          >
-            <h1>{t('validators')}</h1>
-          </th>
-          {['rankComm', 'rankBondTotal', 'rankBondOwn', 'rankBondOther', 'rankOverall'].map((header): React.ReactNode => (
-            <th
-              className={`isClickable ${sortBy === header && 'ui--highlight--border'} number`}
-              key={header}
-              onClick={(): void => _sort(header as 'rankComm')}
-            >{labels[header]}<Icon name={sortBy === header ? (sortFromMax ? 'chevron down' : 'chevron up') : 'minus'} /></th>
-          ))}
-          <th>&nbsp;</th>
-        </Table.Head>
-        <Table.Body empty={sorted && t('No active validators to check for rewards available')}>
-          {sorted?.map((info): React.ReactNode =>
-            <Validator
-              info={info}
-              key={info.key}
-              toggleFavorite={toggleFavorite}
-            />
-          )}
-        </Table.Body>
+        )}
       </Table>
     </div>
   );
@@ -261,10 +259,13 @@ function Targets ({ className }: Props): React.ReactElement<Props> {
 
 export default React.memo(styled(Targets)`
   text-align: center;
-
+  
   th {
     i.icon {
       margin-left: 0.5rem;
     }
+  }
+  .ui--Table {
+    overflow-x: auto;
   }
 `);

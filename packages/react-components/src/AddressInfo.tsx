@@ -3,13 +3,13 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { DeriveBalancesAll, DeriveStakingAccount } from '@polkadot/api-derive/types';
-import { ValidatorPrefsTo145 } from '@polkadot/types/interfaces';
+import { LockIdentifier, ValidatorPrefsTo145 } from '@polkadot/types/interfaces';
 import { BareProps } from './types';
 
 import BN from 'bn.js';
 import React from 'react';
 import styled from 'styled-components';
-import { formatBalance, formatNumber, isObject } from '@polkadot/util';
+import { formatBalance, formatNumber, hexToString, isObject } from '@polkadot/util';
 import { Expander, Icon, Tooltip } from '@polkadot/react-components';
 import { withCalls, withMulti } from '@polkadot/react-api/hoc';
 import { useAccounts } from '@polkadot/react-hooks';
@@ -76,6 +76,18 @@ const DEFAULT_PREFS = {
   unstakeThreshold: true,
   validatorPayment: true
 };
+
+function lookupLock (lookup: Record<string, string>, lockId: LockIdentifier): string {
+  const lockHex = lockId.toHex();
+
+  try {
+    const lockName = hexToString(lockHex);
+
+    return lookup[lockName] || lockName;
+  } catch (error) {
+    return lockHex;
+  }
+}
 
 // skip balances retrieval of none of this matches
 function skipBalancesIf ({ withBalance = true, withExtended = false }: Props): boolean {
@@ -213,10 +225,16 @@ function renderBalances (props: Props, allAccounts: string[], t: (key: string) =
 
   const [ownBonded, otherBonded] = calcBonded(stakingInfo, balanceDisplay.bonded);
   const isAllLocked = !!balancesAll && balancesAll.lockedBreakdown.some(({ amount }): boolean => amount.isMax());
+  const lookup = {
+    democrac: t('via Democracy/Vote'),
+    phrelect: t('via Council/Vote'),
+    'staking ': t('via Staking/Bond'),
+    'vesting ': t('via Vesting')
+  };
 
   const allItems = (
     <>
-      {balancesAll && balanceDisplay.total && (
+      {!withBalanceToggle && balancesAll && balanceDisplay.total && (
         <>
           <Label label={t('total')} />
           <FormatBalance
@@ -248,20 +266,22 @@ function renderBalances (props: Props, allAccounts: string[], t: (key: string) =
           <Label label={t('locked')} />
           <FormatBalance
             className='result'
+            label={
+              <Icon
+                data-for={`${address}-locks-trigger`}
+                data-tip
+                name='info circle'
+              />
+            }
             value={isAllLocked ? 'all' : balancesAll.lockedBalance}
           >
-            <Icon
-              data-for={`${address}-locks-trigger`}
-              data-tip
-              name='info circle'
-            />
             <Tooltip
-              text={balancesAll.lockedBreakdown.map(({ amount, reasons }, index): React.ReactNode => (
+              text={balancesAll.lockedBreakdown.map(({ amount, id, reasons }, index): React.ReactNode => (
                 <div key={index}>
                   {amount.isMax()
                     ? t('everything')
                     : formatBalance(amount, { forceUnit: '-' })
-                  }<div className='faded'>{reasons.toString()}</div>
+                  }{id && <div className='faded'>{lookupLock(lookup, id)}</div>}<div className='faded'>{reasons.toString()}</div>
                 </div>
               ))}
               trigger={`${address}-locks-trigger`}
@@ -319,12 +339,7 @@ function renderBalances (props: Props, allAccounts: string[], t: (key: string) =
   if (withBalanceToggle) {
     return (
       <>
-        <Expander summary={
-          <FormatBalance
-            className='summary'
-            value={balancesAll?.votingBalance}
-          />
-        }>
+        <Expander summary={<FormatBalance value={balancesAll?.votingBalance} />}>
           <div className='body column'>
             {allItems}
           </div>
@@ -403,12 +418,6 @@ export default withMulti(
       &.column--expander {
         width: 15rem;
 
-        .ui--Expander.isExpanded {
-          .summary {
-            opacity: 0;
-          }
-        }
-
         .ui--Expander {
           width: 100%;
 
@@ -440,8 +449,8 @@ export default withMulti(
           grid-column: 2;
 
           .icon {
-            margin-left: .3em;
-            margin-right: 0;
+            margin-left: 0;
+            margin-right: 0.25rem;
             padding-right: 0 !important;
           }
         }

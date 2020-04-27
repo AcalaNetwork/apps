@@ -51,6 +51,12 @@ export default createGlobalStyle<Props>`
     }
   }
 
+  .ui--highlight--spinner {
+    &:after {
+      border-color: ${(props): string => (props.uiHighlight || defaultHighlight)} transparent transparent !important;
+    }
+  }
+
   .ui--highlight--stroke {
     stroke: ${(props): string => (props.uiHighlight || defaultHighlight)} !important;
   }
@@ -141,6 +147,10 @@ export default createGlobalStyle<Props>`
     &.error,
     &.warning {
       margin-left: 2.25rem;
+    }
+
+    &.nomargin {
+      margin-left: 0;
     }
 
     &.error {

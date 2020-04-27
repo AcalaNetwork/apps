@@ -13,7 +13,7 @@ import { FormatBalance } from '@polkadot/react-query';
 import { Option } from '@polkadot/types';
 
 import CandidateVoting from './CandidateVoting';
-import VoteDisplay from './VoteDisplay';
+import Votes from './Votes';
 
 interface Props {
   allMembers: string[];
@@ -24,7 +24,7 @@ interface Props {
 
 function Candidate ({ allMembers, isMember, ownMembers, value: { accountId, kind, value } }: Props): React.ReactElement<Props> {
   const { api } = useApi();
-  const votes = useCall<VoteType[]>(api.query.society.votes.multi as any, [allMembers.map((memberId): [AccountId, string] => [accountId, memberId])] as any, {
+  const votes = useCall<VoteType[]>(api.query.society.votes.multi, [allMembers.map((memberId): [AccountId, string] => [accountId, memberId])] as any, {
     transform: (voteOpts: Option<SocietyVote>[]): VoteType[] =>
       voteOpts
         .map((voteOpt, index): [string, Option<SocietyVote>] => [allMembers[index], voteOpt])
@@ -43,7 +43,7 @@ function Candidate ({ allMembers, isMember, ownMembers, value: { accountId, kind
       <td className='number'>
         <FormatBalance value={value} />
       </td>
-      <VoteDisplay votes={votes} />
+      <Votes votes={votes} />
       <td className='button'>
         <CandidateVoting
           candidateId={accountId.toString()}

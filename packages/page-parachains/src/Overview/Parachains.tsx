@@ -4,7 +4,7 @@
 
 import { DeriveParachain } from '@polkadot/api-derive/types';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { Table } from '@polkadot/react-components';
 
@@ -18,29 +18,26 @@ interface Props {
 function Parachains ({ parachains }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
 
+  const header = useMemo(() => [
+    [t('parachains'), 'start', 4],
+    [t('swap to id')],
+    [t('scheduling')]
+  ], [t]);
+
   return (
-    <Table>
-      <Table.Head>
-        <th colSpan={4}>&nbsp;</th>
-        <th>{t('swap to id')}</th>
-        <th>{t('scheduling')}</th>
-      </Table.Head>
-      <Table.Body>
-        {parachains.map((parachain): React.ReactNode => (
-          <Parachain
-            key={parachain.id.toString()}
-            parachain={parachain}
-          />
-        ))}
-      </Table.Body>
+    <Table header={header}>
+      {parachains.map((parachain): React.ReactNode => (
+        <Parachain
+          key={parachain.id.toString()}
+          parachain={parachain}
+        />
+      ))}
     </Table>
   );
 }
 
 export default React.memo(styled(Parachains)`
-  tbody {
-    tr {
-      cursor: pointer;
-    }
+  tbody tr {
+    cursor: pointer;
   }
 `);

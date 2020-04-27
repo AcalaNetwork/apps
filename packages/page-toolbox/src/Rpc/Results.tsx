@@ -15,9 +15,7 @@ interface Props extends BareProps {
 
 function Results ({ queue = [] }: Props): React.ReactElement<Props> | null {
   const filtered = queue
-    .filter(({ error, result }): boolean =>
-      !isUndefined(error) || !isUndefined(result)
-    )
+    .filter(({ error, result }) => !isUndefined(error) || !isUndefined(result))
     .reverse();
 
   if (!filtered.length) {
@@ -34,7 +32,7 @@ function Results ({ queue = [] }: Props): React.ReactElement<Props> | null {
           value={
             error
               ? error.message
-              : <pre>{JSON.stringify(result.toHuman(), null, 2).replace(/"/g, '')}</pre>
+              : <pre>{JSON.stringify(result.toHuman(), null, 2).replace(/"/g, '').replace(/\\/g, '').replace(/\],\[/g, '],\n[')}</pre>
           }
         />
       ))}
