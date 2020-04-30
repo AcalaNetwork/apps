@@ -18,18 +18,18 @@ function createLive (): Option[] {
   return [
     {
       info: 'substrate',
-      text: 'Mandala TC3 Node 1 (Hosted by Acala)',
+      text: 'Mandala TC3 Node 1 (Hosted by OnFinality)',
+      value: 'wss://node-6661046769230852096.jm.onfinality.io/ws'
+    },
+    {
+      info: 'substrate',
+      text: 'Mandala TC3 Node 2 (Hosted by OnFinality)',
+      value: 'wss://node-6661046769218965504.rz.onfinality.io/ws'
+    },
+    {
+      info: 'substrate',
+      text: 'Mandala TC3 Node 3 (Hosted by Acala)',
       value: 'wss://testnet-node-1.acala.laminar.one/ws'
-    },
-    {
-      info: 'substrate',
-      text: 'Mandala TC2 Node 1 (Hosted by OnFinality)',
-      value: 'wss://node-6640517791634960384.jm.onfinality.io/ws'
-    },
-    {
-      info: 'substrate',
-      text: 'Mandala TC1 (Hosted by OnFinality)',
-      value: 'wss://node-6635400830093635584.jm.onfinality.io/ws'
     }
   ];
 }
@@ -38,8 +38,8 @@ function createTest (): Option[] {
   return [
     {
       info: 'substrate',
-      text: 'Mandala TC3 Node 1 (Hosted by Acala)',
-      value: 'wss://testnet-node-1.acala.laminar.one/ws'
+      text: 'Mandala TC2 Node 1 (Hosted by OnFinality)',
+      value: 'wss://node-6640517791634960384.jm.onfinality.io/ws'
     }
   ];
 }
