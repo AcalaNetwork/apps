@@ -3225,11 +3225,11 @@ __metadata:
   linkType: hard
 
 "@types/fs-extra@npm:^9.0.1":
-  version: 9.0.1
-  resolution: "@types/fs-extra@npm:9.0.1"
+  version: 9.0.2
+  resolution: "@types/fs-extra@npm:9.0.2"
   dependencies:
     "@types/node": "*"
-  checksum: a7c0f7373620b5045fb5fc6ccc28c8752a08f93c03127036e292cfa35bf123bd2cdbe534aaac5800a8383af37490c8b8d1192361ea24a4c7e4177ebe97c3b429
+  checksum: 9fb00885d8d064cf81e25722e6ee6f8af316065beb33b980f24a4a918e06c15ae328b82d3ede240e9b99e039c59467a266c1e4549d5b3ad2498111c75eb90987
   languageName: node
   linkType: hard
 
@@ -3406,7 +3406,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^12.0.12":
+"@types/node@npm:*":
   version: 12.12.62
   resolution: "@types/node@npm:12.12.62"
   checksum: 8810ba25c10b0e9f9fe91740854cae2b1e4ed500d6b79c135cf08e8cad67155fe8b4e7abbb8b1f65aaffb3fef58980d7bd2f051aed8d762e015d34b76db89194
@@ -3417,6 +3417,13 @@ __metadata:
   version: 11.11.6
   resolution: "@types/node@npm:11.11.6"
   checksum: 2b64bfc2344f60fdcf3baea2f9f2e065189cee3a6144d3dbdcb32cb6728dd64933808e2da8bd4d69033f04510f7de1397c08d54d8f89d505b3a957b24dcc583f
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^12.0.12":
+  version: 12.12.67
+  resolution: "@types/node@npm:12.12.67"
+  checksum: 8e9833cc8e32bd79fe18fae6c14f8d6d13bd4a46be8443b90f151bc2899c1aa081823a215cfead7219cd63a7d6a13645bcf11acbf53e56d5e37c76cb51a40bff
   languageName: node
   linkType: hard
 
@@ -3668,12 +3675,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yargs@npm:^15.0.0, @types/yargs@npm:^15.0.5":
+"@types/yargs@npm:^15.0.0":
   version: 15.0.7
   resolution: "@types/yargs@npm:15.0.7"
   dependencies:
     "@types/yargs-parser": "*"
   checksum: df076111e3564fb2e92dc11fe0b32b096bb3ed8e241dd70205159c83d32a0ba281ea73108a995679cb29c6a2fa434c5a90237e33ba9cdcba2e98165e35a74440
+  languageName: node
+  linkType: hard
+
+"@types/yargs@npm:^15.0.5":
+  version: 15.0.8
+  resolution: "@types/yargs@npm:15.0.8"
+  dependencies:
+    "@types/yargs-parser": "*"
+  checksum: f3a946ef2ffefdd396998f97d9a9ad89b3e57aa8886c4529f754b72834f9ee5b797d779e27d1e9b639552c4bea8eb7cc852faa150773e7277fdae02bfea9aa38
   languageName: node
   linkType: hard
 
@@ -7598,15 +7614,15 @@ __metadata:
   linkType: hard
 
 "electron@npm:^9.3.1":
-  version: 9.3.1
-  resolution: "electron@npm:9.3.1"
+  version: 9.3.2
+  resolution: "electron@npm:9.3.2"
   dependencies:
     "@electron/get": ^1.0.1
     "@types/node": ^12.0.12
     extract-zip: ^1.0.3
   bin:
     electron: cli.js
-  checksum: 53d525ebd43501e79a512eb6f86bc13ec6758cbcb32c4d1f9ae70bfe81c9c4c9a4141e5faf9fdb70aea4845f3d902b3335ee937f44621c8c3592cdeece7eca02
+  checksum: 9464c1bb8c6fc78f1af17ced322a5615fb966f93ce06f3465792cb08db152abc45d43801520c27a0fef62c3d652659bb778b2d8a760befcb3250b885fe7d5fb4
   languageName: node
   linkType: hard
 
@@ -9811,11 +9827,11 @@ fsevents@^1.2.7:
   linkType: hard
 
 "hosted-git-info@npm:^3.0.5":
-  version: 3.0.5
-  resolution: "hosted-git-info@npm:3.0.5"
+  version: 3.0.7
+  resolution: "hosted-git-info@npm:3.0.7"
   dependencies:
     lru-cache: ^6.0.0
-  checksum: 38d67337781cc39d6ce88354097bebaa0ddc887d3e53ba7f62ffda2c880fb34efd81bf2a5896183ceb62661c646ada4a2da95841c34b968b3c010e754a32deb3
+  checksum: 010f06d5a6ac76d9b4b258e3719fc7cd9cc9beea51478afd7db0648f6a6019d8410aef560e09bae6bfc4ba572aa4ed52e62a0a8ae0267c645519e852b9087f42
   languageName: node
   linkType: hard
 
