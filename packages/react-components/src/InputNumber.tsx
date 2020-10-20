@@ -243,7 +243,7 @@ function InputNumber ({ autoFocus, bitLength = DEFAULT_BITLENGTH, children, clas
     [_onChangeWithSi, value]
   );
 
-  const maxValueLength = getGlobalMaxValue(bitLength).toString().length - 1;
+  // const maxValueLength = getGlobalMaxValue(bitLength).toString().length - 1;
 
   return (
     <Input
@@ -257,7 +257,7 @@ function InputNumber ({ autoFocus, bitLength = DEFAULT_BITLENGTH, children, clas
       isWarning={isWarning}
       label={label}
       labelExtra={labelExtra}
-      maxLength={maxLength || maxValueLength}
+      maxLength={32}
       onChange={_onChange}
       onEnter={onEnter}
       onEscape={onEscape}
