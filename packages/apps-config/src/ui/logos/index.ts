@@ -15,6 +15,7 @@ import chainRococoTrick from './chains/rococo-trick.svg';
 // defaults for the node type, assuming we don't have a specific chain, but rather match on the implementation
 // alphabetical
 import nodeAcala from './nodes/acala-circle.svg';
+import nodeCanvas from './nodes/canvas-2.png';
 import nodeCentrifuge from './nodes/centrifuge.png';
 import nodeCrab from './nodes/crab.svg';
 import nodeCrust from './nodes/crust.svg';
@@ -76,6 +77,7 @@ const chainLogos: Record<string, any> = [
 // alphabetical
 const nodeLogos: Record<string, any> = [
   ['airalab-robonomics', nodeRobonomics],
+  ['Canvas Node', nodeCanvas],
   ['centrifuge chain', nodeCentrifuge],
   ['Centrifuge Chain Node', nodeCentrifuge],
   ['crab', nodeCrab],
@@ -112,11 +114,12 @@ const nodeLogos: Record<string, any> = [
 const namedLogos: Record<string, any> = {
   acala: nodeAcala,
   alexander: nodePolkadot,
+  canvas: nodeCanvas,
   centrifuge: nodeCentrifuge,
   crab: nodeCrab,
   crust: nodeCrust,
-  dockMainnet: nodeDockMainnet,
-  dockTestnet: nodeDockTestnet,
+  'dock-mainnet': nodeDockMainnet,
+  'dock-testnet': nodeDockTestnet,
   dusty: chainDusty,
   edgeware: nodeEdgeware,
   empty: emptyLogo,
