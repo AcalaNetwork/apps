@@ -12,12 +12,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@acala-network/type-definitions@npm:^0.4.0-beta.33":
   version: 0.4.0-beta.33
   resolution: "@acala-network/type-definitions@npm:0.4.0-beta.33"
   dependencies:
     "@open-web3/orml-type-definitions": ^0.6.0-beta.26
   checksum: 7dec3d96087d888b3d3d293a2841d6b5e57d90a2bc4dec31dd9e7fff0ff887a0c55a09d997cf45bc8e77023c51f495b1dac838d79d4ca06e19346c3792e8f7a2
+=======
+"@acala-network/type-definitions@npm:^0.4.0-beta.25":
+  version: 0.4.0-beta.25
+  resolution: "@acala-network/type-definitions@npm:0.4.0-beta.25"
+  dependencies:
+    "@open-web3/orml-type-definitions": ^0.6.0-beta.26
+  checksum: 29028c1b03e99cb298741e471040d28bbc9deb504c263d046e889cffcc60aff846f4411851a0954ef4f4e468f7e76cd7ff169e3a4f29c21e5d07a6dfdc721242
+>>>>>>> update deps
   languageName: node
   linkType: hard
 
@@ -2256,9 +2265,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/apps-config@workspace:packages/apps-config"
   dependencies:
+<<<<<<< HEAD
     "@acala-network/type-definitions": ^0.4.0-beta.33
     "@babel/runtime": ^7.12.5
     "@edgeware/node-types": ^3.0.10
+=======
+    "@acala-network/type-definitions": ^0.4.0-beta.25
+    "@babel/runtime": ^7.12.1
+    "@edgeware/node-types": ^3.0.7
+>>>>>>> update deps
     "@laminar/type-definitions": ^0.2.0-beta.141
     "@polkadot/networks": ^4.2.1
     "@sora-substrate/type-definitions": ^0.1.7
