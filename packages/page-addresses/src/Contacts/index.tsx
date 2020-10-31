@@ -80,15 +80,17 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
         filter={filter}
         header={headerRef.current}
       >
-        {isLoading ? undefined : sortedAddresses?.map(({ address, isFavorite }): React.ReactNode => (
-          <Address
-            address={address}
-            filter={filterOn}
-            isFavorite={isFavorite}
-            key={address}
-            toggleFavorite={toggleFavorite}
-          />
-        ))}
+        {isLoading
+          ? undefined
+          : sortedAddresses?.map(({ address, isFavorite }): React.ReactNode => (
+            <Address
+              address={address}
+              filter={filterOn}
+              isFavorite={isFavorite}
+              key={address}
+              toggleFavorite={toggleFavorite}
+            />
+          ))}
       </Table>
     </div>
   );

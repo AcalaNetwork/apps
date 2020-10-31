@@ -42,8 +42,8 @@ function Bond ({ className = '', onChange }: Props): React.ReactElement<Props> {
   );
 
   const _setError = useCallback(
-    // eslint-disable-next-line handle-callback-err
-    (error: string | null, isFatal: boolean) => setControllerError(isFatal),
+    // eslint-disable-next-line
+    (_error: string | null, isFatal: boolean) => setControllerError(isFatal),
     []
   );
 

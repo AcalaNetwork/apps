@@ -237,18 +237,20 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
         footer={footer}
         header={headerRef.current}
       >
-        {isLoading ? undefined : sortedAccountsWithDelegation?.map(({ account, delegation, isFavorite }, index): React.ReactNode => (
-          <Account
-            account={account}
-            delegation={delegation}
-            filter={filterOn}
-            isFavorite={isFavorite}
-            key={account.address}
-            proxy={proxies?.[index]}
-            setBalance={_setBalance}
-            toggleFavorite={toggleFavorite}
-          />
-        ))}
+        {isLoading
+          ? undefined
+          : sortedAccountsWithDelegation?.map(({ account, delegation, isFavorite }, index): React.ReactNode => (
+            <Account
+              account={account}
+              delegation={delegation}
+              filter={filterOn}
+              isFavorite={isFavorite}
+              key={account.address}
+              proxy={proxies?.[index]}
+              setBalance={_setBalance}
+              toggleFavorite={toggleFavorite}
+            />
+          ))}
       </Table>
     </div>
   );
