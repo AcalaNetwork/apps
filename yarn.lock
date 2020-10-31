@@ -2354,10 +2354,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-accounts@workspace:packages/page-accounts"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
-    "@polkadot/react-components": ^0.70.2-0
+    "@polkadot/react-components": ^0.70.2-2
     "@polkadot/vanitygen": ^0.24.1
     "@testing-library/react": ^11.2.2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+    "@polkadot/vanitygen": ^0.22.1
+    "@testing-library/react": ^11.1.0
+>>>>>>> [CI Skip] release/beta 0.63.2-18
     detect-browser: ^5.2.0
     file-saver: ^2.0.5
     testcontainers: ^4.7.0
@@ -2368,8 +2375,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-addresses@workspace:packages/page-addresses"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
-    "@polkadot/react-components": ^0.70.2-0
+    "@polkadot/react-components": ^0.70.2-2
     "@testing-library/react": ^11.2.2
     file-saver: ^2.0.5
     testcontainers: ^4.7.0
@@ -2381,9 +2389,18 @@ __metadata:
   resolution: "@polkadot/app-bounties@workspace:packages/page-bounties"
   dependencies:
     "@babel/runtime": ^7.12.5
-    "@polkadot/react-components": ^0.70.2-0
+    "@polkadot/react-components": ^0.70.2-2
     "@testing-library/react": ^11.2.2
     testcontainers: ^4.7.0
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+    "@polkadot/vanitygen": ^0.22.1
+    "@testing-library/react": ^11.1.0
+    detect-browser: ^5.2.0
+    file-saver: ^2.0.2
+    testcontainers: ^4.4.0
+>>>>>>> [CI Skip] release/beta 0.63.2-18
   languageName: unknown
   linkType: soft
 
@@ -2391,8 +2408,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-calendar@workspace:packages/page-calendar"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2400,8 +2434,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-claims@workspace:packages/page-claims"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
     secp256k1: ^3.8.0
   languageName: unknown
   linkType: soft
@@ -2419,9 +2470,30 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-council@workspace:packages/page-council"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
     "@polkadot/react-query": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-query": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+    "@polkadot/react-query": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+    "@polkadot/react-query": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-query": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2429,18 +2501,45 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-democracy@workspace:packages/page-democracy"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
-    "@polkadot/react-components": ^0.70.2-0
-    "@polkadot/react-query": ^0.70.2-0
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-query": ^0.70.2-2
   languageName: unknown
   linkType: soft
 
-"@polkadot/app-explorer@^0.70.2-0, @polkadot/app-explorer@workspace:packages/page-explorer":
+"@polkadot/app-explorer@^0.70.2-2, @polkadot/app-explorer@workspace:packages/page-explorer":
   version: 0.0.0-use.local
   resolution: "@polkadot/app-explorer@workspace:packages/page-explorer"
   dependencies:
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+    "@polkadot/react-query": ^0.63.2-18
+  languageName: unknown
+  linkType: soft
+
+"@polkadot/app-explorer@^0.63.2-18, @polkadot/app-explorer@workspace:packages/page-explorer":
+  version: 0.0.0-use.local
+  resolution: "@polkadot/app-explorer@workspace:packages/page-explorer"
+  dependencies:
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2448,10 +2547,35 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-extrinsics@workspace:packages/page-extrinsics"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
     "@polkadot/react-params": ^0.70.2-0
     "@polkadot/react-signer": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-params": ^0.70.2-2
+    "@polkadot/react-signer": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+    "@polkadot/react-params": ^0.63.2-18
+    "@polkadot/react-signer": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+    "@polkadot/react-params": ^0.70.2-1
+    "@polkadot/react-signer": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-params": ^0.70.2-2
+    "@polkadot/react-signer": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2459,8 +2583,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-generic-asset@workspace:packages/page-generic-asset"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2468,8 +2609,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-js@workspace:packages/page-js"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2477,9 +2635,30 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-parachains@workspace:packages/page-parachains"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
     "@polkadot/react-query": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-query": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+    "@polkadot/react-query": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+    "@polkadot/react-query": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-query": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2487,8 +2666,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-poll@workspace:packages/page-poll"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2496,8 +2692,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-rpc@workspace:packages/page-rpc"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2505,11 +2718,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-settings@workspace:packages/page-settings"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
-    "@polkadot/apps-config": ^0.70.2-0
-    "@polkadot/react-components": ^0.70.2-0
-    "@polkadot/react-query": ^0.70.2-0
+    "@polkadot/apps-config": ^0.70.2-2
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-query": ^0.70.2-2
     query-string: ^6.13.7
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/apps-config": ^0.63.2-18
+    "@polkadot/react-components": ^0.63.2-18
+    "@polkadot/react-query": ^0.63.2-18
+    query-string: ^6.13.6
+>>>>>>> [CI Skip] release/beta 0.63.2-18
   languageName: unknown
   linkType: soft
 
@@ -2517,8 +2738,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-signing@workspace:packages/page-signing"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2526,8 +2764,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-society@workspace:packages/page-society"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2535,10 +2790,35 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-staking@workspace:packages/page-staking"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/app-explorer": ^0.70.2-0
     "@polkadot/react-components": ^0.70.2-0
     "@polkadot/react-query": ^0.70.2-0
+=======
+    "@polkadot/app-explorer": ^0.70.2-2
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-query": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/app-explorer": ^0.63.2-18
+    "@polkadot/react-components": ^0.63.2-18
+    "@polkadot/react-query": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/app-explorer": ^0.70.2-1
+    "@polkadot/react-components": ^0.70.2-1
+    "@polkadot/react-query": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/app-explorer": ^0.70.2-2
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-query": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2546,9 +2826,30 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-storage@workspace:packages/page-storage"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
     "@polkadot/react-params": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-params": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+    "@polkadot/react-params": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+    "@polkadot/react-params": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-params": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2556,8 +2857,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-sudo@workspace:packages/page-sudo"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2565,9 +2883,30 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-tech-comm@workspace:packages/page-tech-comm"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
     "@polkadot/react-query": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-query": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+    "@polkadot/react-query": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+    "@polkadot/react-query": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-query": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -2575,13 +2914,35 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/app-treasury@workspace:packages/page-treasury"
   dependencies:
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
-    "@polkadot/react-components": ^0.70.2-0
-    "@polkadot/react-query": ^0.70.2-0
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-query": ^0.70.2-2
   languageName: unknown
   linkType: soft
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 "@polkadot/apps-config@^0.70.2-0, @polkadot/apps-config@workspace:packages/apps-config":
+=======
+"@polkadot/apps-config@^0.70.2-2, @polkadot/apps-config@workspace:packages/apps-config":
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+    "@polkadot/react-query": ^0.63.2-18
+  languageName: unknown
+  linkType: soft
+
+"@polkadot/apps-config@^0.63.2-18, @polkadot/apps-config@workspace:packages/apps-config":
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+"@polkadot/apps-config@^0.70.2-1, @polkadot/apps-config@workspace:packages/apps-config":
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+"@polkadot/apps-config@^0.70.2-2, @polkadot/apps-config@workspace:packages/apps-config":
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   version: 0.0.0-use.local
   resolution: "@polkadot/apps-config@workspace:packages/apps-config"
   dependencies:
@@ -2612,9 +2973,32 @@ __metadata:
   dependencies:
     "@babel/core": ^7.12.9
     "@babel/polyfill": ^7.12.1
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/dev": ^0.60.8
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
+=======
+<<<<<<< HEAD
+    "@polkadot/dev": ^0.60.11
+    "@polkadot/react-components": ^0.70.2-2
+<<<<<<< HEAD
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+=======
+    "@polkadot/dev": ^0.60.11
+>>>>>>> fef4479fd... Bump dev (import plugin in base) (#4169)
+    "@polkadot/react-components": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
     "@types/react-dom": ^17.0.0
+=======
+    "@polkadot/dev": ^0.59.1
+    "@polkadot/react-components": ^0.63.2-18
+    "@types/react": ^16.9.53
+    "@types/react-dom": ^16.9.8
+>>>>>>> [CI Skip] release/beta 0.63.2-18
     "@types/tmp": ^0.2.0
     babel-loader: ^8.2.2
     copy-webpack-plugin: ^6.3.2
@@ -2629,7 +3013,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 "@polkadot/apps-routing@^0.70.2-0, @polkadot/apps-routing@workspace:packages/apps-routing":
+=======
+<<<<<<< HEAD
+"@polkadot/apps-routing@^0.70.2-2, @polkadot/apps-routing@workspace:packages/apps-routing":
+=======
+"@polkadot/apps-routing@^0.63.2-18, @polkadot/apps-routing@workspace:packages/apps-routing":
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+"@polkadot/apps-routing@^0.70.2-1, @polkadot/apps-routing@workspace:packages/apps-routing":
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+"@polkadot/apps-routing@^0.70.2-2, @polkadot/apps-routing@workspace:packages/apps-routing":
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   version: 0.0.0-use.local
   resolution: "@polkadot/apps-routing@workspace:packages/apps-routing"
   dependencies:
@@ -2643,7 +3043,11 @@ __metadata:
   dependencies:
     "@babel/core": ^7.12.9
     "@babel/polyfill": ^7.12.1
+<<<<<<< HEAD
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/apps-config": ^0.70.2-0
     "@polkadot/apps-routing": ^0.70.2-0
     "@polkadot/dev": ^0.60.8
@@ -2653,6 +3057,51 @@ __metadata:
     "@polkadot/react-params": ^0.70.2-0
     "@polkadot/react-query": ^0.70.2-0
     "@polkadot/react-signer": ^0.70.2-0
+=======
+    "@polkadot/apps-config": ^0.70.2-2
+    "@polkadot/apps-routing": ^0.70.2-2
+    "@polkadot/dev": ^0.60.11
+    "@polkadot/react-api": ^0.70.2-2
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-hooks": ^0.70.2-2
+    "@polkadot/react-params": ^0.70.2-2
+    "@polkadot/react-query": ^0.70.2-2
+    "@polkadot/react-signer": ^0.70.2-2
+=======
+    "@babel/runtime": ^7.12.1
+    "@polkadot/apps-config": ^0.63.2-18
+    "@polkadot/apps-routing": ^0.63.2-18
+    "@polkadot/dev": ^0.59.1
+    "@polkadot/react-api": ^0.63.2-18
+    "@polkadot/react-components": ^0.63.2-18
+    "@polkadot/react-hooks": ^0.63.2-18
+    "@polkadot/react-params": ^0.63.2-18
+    "@polkadot/react-query": ^0.63.2-18
+    "@polkadot/react-signer": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/apps-config": ^0.70.2-1
+    "@polkadot/apps-routing": ^0.70.2-1
+    "@polkadot/dev": ^0.60.11
+    "@polkadot/react-api": ^0.70.2-1
+    "@polkadot/react-components": ^0.70.2-1
+    "@polkadot/react-hooks": ^0.70.2-1
+    "@polkadot/react-params": ^0.70.2-1
+    "@polkadot/react-query": ^0.70.2-1
+    "@polkadot/react-signer": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/apps-config": ^0.70.2-2
+    "@polkadot/apps-routing": ^0.70.2-2
+    "@polkadot/dev": ^0.60.11
+    "@polkadot/react-api": ^0.70.2-2
+    "@polkadot/react-components": ^0.70.2-2
+    "@polkadot/react-hooks": ^0.70.2-2
+    "@polkadot/react-params": ^0.70.2-2
+    "@polkadot/react-query": ^0.70.2-2
+    "@polkadot/react-signer": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
     "@types/punycode": ^2.1.0
     babel-loader: ^8.2.2
     copy-webpack-plugin: ^6.3.2
@@ -2674,6 +3123,7 @@ __metadata:
   linkType: soft
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "@polkadot/dev@npm:^0.60.8":
   version: 0.60.8
   resolution: "@polkadot/dev@npm:0.60.8"
@@ -2688,6 +3138,11 @@ __metadata:
   resolution: "@polkadot/dev@npm:0.59.10"
 >>>>>>> update acala-types
 >>>>>>> 1f8b78680... update acala-types
+=======
+"@polkadot/dev@npm:^0.60.11":
+  version: 0.60.11
+  resolution: "@polkadot/dev@npm:0.60.11"
+>>>>>>> fef4479fd... Bump dev (import plugin in base) (#4169)
   dependencies:
     "@babel/cli": ^7.12.8
     "@babel/core": ^7.12.9
@@ -2745,12 +3200,16 @@ __metadata:
     eslint-plugin-react: ^7.21.5
     eslint-plugin-react-hooks: ^4.2.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
     eslint-plugin-simple-import-sort: ^7.0.0-beta.1
 >>>>>>> 1f8b78680... update acala-types
     eslint-plugin-sort-destructure-keys: ^1.3.5
 =======
+=======
+    eslint-plugin-simple-import-sort: ^7.0.0-beta.1
+>>>>>>> fef4479fd... Bump dev (import plugin in base) (#4169)
     eslint-plugin-sort-destructure-keys: ^1.3.5
     eslint-plugin-standard: ^4.0.2
 >>>>>>> update acala-types
@@ -2783,7 +3242,7 @@ __metadata:
     typedoc-plugin-no-inherit: ^1.2.0
 <<<<<<< HEAD
     typescript: ^4.1.2
-    yargs: ^16.1.1
+    yargs: ^16.2.0
   bin:
     polkadot-ci-ghact-build: scripts/polkadot-ci-ghact-build.cjs
     polkadot-ci-ghact-docs: scripts/polkadot-ci-ghact-docs.cjs
@@ -2807,7 +3266,7 @@ __metadata:
     polkadot-exec-typedoc: scripts/polkadot-exec-typedoc.cjs
     polkadot-exec-vuepress: scripts/polkadot-exec-vuepress.cjs
     polkadot-exec-webpack: scripts/polkadot-exec-webpack.cjs
-  checksum: e9b4dd08aa90de176f719fdfa4b2b810e9219fb554b7c1137dc6ae28f6ea7aa608447ce0050c16a739a98bbae979f4fd09e41a77ad08c7ada04784dcbf61fcc0
+  checksum: d583afb3162f8e806d1226ae71cf2860a276fb9e3b2a89c91596d6fec4dd3638555cdfa7568a2f09371bb1a77db485a61d82354aa3867458d8dea60212a99664
   languageName: node
   linkType: hard
 
@@ -2958,6 +3417,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@polkadot/networks@npm:^4.2.1":
   version: 4.2.1
   resolution: "@polkadot/networks@npm:4.2.1"
@@ -2967,7 +3427,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 "@polkadot/react-api@^0.70.2-0, @polkadot/react-api@workspace:packages/react-api":
+=======
+"@polkadot/react-api@^0.70.2-2, @polkadot/react-api@workspace:packages/react-api":
+=======
+"@polkadot/react-api@^0.63.2-18, @polkadot/react-api@workspace:packages/react-api":
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+"@polkadot/react-api@^0.70.2-1, @polkadot/react-api@workspace:packages/react-api":
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+"@polkadot/react-api@^0.70.2-2, @polkadot/react-api@workspace:packages/react-api":
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   version: 0.0.0-use.local
   resolution: "@polkadot/react-api@workspace:packages/react-api"
   dependencies:
@@ -2978,23 +3453,52 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 "@polkadot/react-components@^0.70.2-0, @polkadot/react-components@workspace:packages/react-components":
+=======
+<<<<<<< HEAD
+"@polkadot/react-components@^0.70.2-2, @polkadot/react-components@workspace:packages/react-components":
+=======
+"@polkadot/react-components@^0.63.2-18, @polkadot/react-components@workspace:packages/react-components":
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+"@polkadot/react-components@^0.70.2-1, @polkadot/react-components@workspace:packages/react-components":
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+"@polkadot/react-components@^0.70.2-2, @polkadot/react-components@workspace:packages/react-components":
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   version: 0.0.0-use.local
   resolution: "@polkadot/react-components@workspace:packages/react-components"
   dependencies:
     "@babel/runtime": ^7.12.5
     "@fortawesome/fontawesome-svg-core": ^1.2.32
     "@fortawesome/free-solid-svg-icons": ^5.15.1
+<<<<<<< HEAD
     "@fortawesome/react-fontawesome": ^0.1.13
     "@polkadot/keyring": ^4.2.1
-    "@polkadot/react-api": ^0.70.2-0
+    "@polkadot/react-api": ^0.70.2-2
     "@polkadot/react-identicon": ^0.62.2-20
     "@polkadot/react-qr": ^0.62.2-20
-    "@polkadot/react-query": ^0.70.2-0
+    "@polkadot/react-query": ^0.70.2-2
     "@polkadot/ui-keyring": ^0.62.2-20
     "@polkadot/ui-settings": ^0.62.2-20
     "@polkadot/util": ^4.2.1
     "@polkadot/util-crypto": ^4.2.1
+=======
+    "@fortawesome/react-fontawesome": ^0.1.11
+    "@polkadot/keyring": ^3.6.1
+    "@polkadot/react-api": ^0.63.2-18
+    "@polkadot/react-identicon": ^0.61.1
+    "@polkadot/react-qr": ^0.61.1
+    "@polkadot/react-query": ^0.63.2-18
+    "@polkadot/ui-keyring": ^0.61.1
+    "@polkadot/ui-settings": ^0.61.1
+    "@polkadot/util": ^3.6.1
+    "@polkadot/util-crypto": ^3.6.1
+>>>>>>> [CI Skip] release/beta 0.63.2-18
     "@types/codeflask": ^1.4.2
     "@types/owasp-password-strength-test": ^1.3.0
     chart.js: ^2.9.4
@@ -3021,7 +3525,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 "@polkadot/react-hooks@^0.70.2-0, @polkadot/react-hooks@workspace:packages/react-hooks":
+=======
+<<<<<<< HEAD
+"@polkadot/react-hooks@^0.70.2-2, @polkadot/react-hooks@workspace:packages/react-hooks":
+=======
+"@polkadot/react-hooks@^0.63.2-18, @polkadot/react-hooks@workspace:packages/react-hooks":
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+"@polkadot/react-hooks@^0.70.2-1, @polkadot/react-hooks@workspace:packages/react-hooks":
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+"@polkadot/react-hooks@^0.70.2-2, @polkadot/react-hooks@workspace:packages/react-hooks":
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   version: 0.0.0-use.local
   resolution: "@polkadot/react-hooks@workspace:packages/react-hooks"
   dependencies:
@@ -3058,12 +3578,45 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 "@polkadot/react-params@^0.70.2-0, @polkadot/react-params@workspace:packages/react-params":
+=======
+<<<<<<< HEAD
+"@polkadot/react-params@^0.70.2-2, @polkadot/react-params@workspace:packages/react-params":
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+"@polkadot/react-params@^0.70.2-1, @polkadot/react-params@workspace:packages/react-params":
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+"@polkadot/react-params@^0.70.2-2, @polkadot/react-params@workspace:packages/react-params":
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   version: 0.0.0-use.local
   resolution: "@polkadot/react-params@workspace:packages/react-params"
   dependencies:
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+=======
+"@polkadot/react-params@^0.63.2-18, @polkadot/react-params@workspace:packages/react-params":
+  version: 0.0.0-use.local
+  resolution: "@polkadot/react-params@workspace:packages/react-params"
+  dependencies:
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -3087,7 +3640,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 "@polkadot/react-query@^0.70.2-0, @polkadot/react-query@workspace:packages/react-query":
+=======
+<<<<<<< HEAD
+"@polkadot/react-query@^0.70.2-2, @polkadot/react-query@workspace:packages/react-query":
+=======
+"@polkadot/react-query@^0.63.2-18, @polkadot/react-query@workspace:packages/react-query":
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+"@polkadot/react-query@^0.70.2-1, @polkadot/react-query@workspace:packages/react-query":
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+"@polkadot/react-query@^0.70.2-2, @polkadot/react-query@workspace:packages/react-query":
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   version: 0.0.0-use.local
   resolution: "@polkadot/react-query@workspace:packages/react-query"
   dependencies:
@@ -3095,12 +3664,45 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 "@polkadot/react-signer@^0.70.2-0, @polkadot/react-signer@workspace:packages/react-signer":
+=======
+<<<<<<< HEAD
+"@polkadot/react-signer@^0.70.2-2, @polkadot/react-signer@workspace:packages/react-signer":
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+"@polkadot/react-signer@^0.70.2-1, @polkadot/react-signer@workspace:packages/react-signer":
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+"@polkadot/react-signer@^0.70.2-2, @polkadot/react-signer@workspace:packages/react-signer":
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   version: 0.0.0-use.local
   resolution: "@polkadot/react-signer@workspace:packages/react-signer"
   dependencies:
     "@babel/runtime": ^7.12.5
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@polkadot/react-components": ^0.70.2-0
+=======
+    "@polkadot/react-components": ^0.70.2-2
+=======
+"@polkadot/react-signer@^0.63.2-18, @polkadot/react-signer@workspace:packages/react-signer":
+  version: 0.0.0-use.local
+  resolution: "@polkadot/react-signer@workspace:packages/react-signer"
+  dependencies:
+    "@babel/runtime": ^7.12.1
+    "@polkadot/react-components": ^0.63.2-18
+>>>>>>> [CI Skip] release/beta 0.63.2-18
+>>>>>>> dc98ab115... [CI Skip] release/beta 0.63.2-18
+=======
+    "@polkadot/react-components": ^0.70.2-1
+>>>>>>> 35511be4d... [CI Skip] release/beta 0.70.2-1
+=======
+    "@polkadot/react-components": ^0.70.2-2
+>>>>>>> 8bed7439d... [CI Skip] release/beta 0.70.2-2
   languageName: unknown
   linkType: soft
 
@@ -8875,7 +9477,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-simple-import-sort@npm:7.0.0-beta.1":
+"eslint-plugin-simple-import-sort@npm:^7.0.0-beta.1":
   version: 7.0.0-beta.1
   resolution: "eslint-plugin-simple-import-sort@npm:7.0.0-beta.1"
   peerDependencies:
@@ -15558,7 +16160,7 @@ fsevents@~2.1.2:
     "@babel/register": ^7.12.1
     "@babel/runtime": ^7.12.5
     "@pinata/sdk": ^1.1.11
-    "@polkadot/dev": ^0.60.8
+    "@polkadot/dev": ^0.60.11
     "@polkadot/ts": ^0.3.57
     "@types/bn.js": ^4.11.6
     "@types/chart.js": ^2.9.28
@@ -15581,7 +16183,6 @@ fsevents@~2.1.2:
 >>>>>>> update acala-types
     electron-builder: ^22.9.1
     electron-builder-notarize: ^1.2.0
-    eslint-plugin-simple-import-sort: 7.0.0-beta.1
     i18next-scanner: ^2.11.0
     react: ^17.0.1
     react-dom: ^17.0.1
