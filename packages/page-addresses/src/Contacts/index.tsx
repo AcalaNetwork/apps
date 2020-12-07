@@ -1,15 +1,16 @@
 // Copyright 2017-2020 @polkadot/app-addresses authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { ComponentProps as Props } from '../types';
+import type { ComponentProps as Props } from '../types';
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import styled from 'styled-components';
+
 import { Button, Input, Table } from '@polkadot/react-components';
 import { useAddresses, useFavorites, useLoadingDelay, useToggle } from '@polkadot/react-hooks';
 
-import { useTranslation } from '../translate';
 import CreateModal from '../modals/Create';
+import { useTranslation } from '../translate';
 import Address from './Address';
 
 type SortedAddress = { address: string; isFavorite: boolean };
@@ -80,17 +81,15 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
         filter={filter}
         header={headerRef.current}
       >
-        {isLoading
-          ? undefined
-          : sortedAddresses?.map(({ address, isFavorite }): React.ReactNode => (
-            <Address
-              address={address}
-              filter={filterOn}
-              isFavorite={isFavorite}
-              key={address}
-              toggleFavorite={toggleFavorite}
-            />
-          ))}
+        {!isLoading && sortedAddresses?.map(({ address, isFavorite }): React.ReactNode => (
+          <Address
+            address={address}
+            filter={filterOn}
+            isFavorite={isFavorite}
+            key={address}
+            toggleFavorite={toggleFavorite}
+          />
+        ))}
       </Table>
     </div>
   );
