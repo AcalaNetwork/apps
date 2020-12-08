@@ -1,9 +1,18 @@
 // Copyright 2017-2020 @polkadot/apps authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { ThemeDef } from '@polkadot/react-components/types';
+import type { ThemeDef } from '@polkadot/react-components/types';
+
+// Fonts as found on https://newcss.net/
+const FONT = {
+  fontMono: '0.9em Consolas, monaco, "Ubuntu Mono", "Liberation Mono", "Courier New", Courier, monospace',
+  fontSans: '1em "-apple-system", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+  fontWeightLight: 200,
+  fontWeightNormal: 400
+};
 
 export const darkTheme: ThemeDef = {
+  ...FONT,
   bgInput: '#38393f',
   bgInputError: '#48393f',
   bgInverse: 'rgba(78, 78, 78, 0.66)',
@@ -24,6 +33,7 @@ export const darkTheme: ThemeDef = {
 };
 
 export const lightTheme: ThemeDef = {
+  ...FONT,
   bgInput: '#fff',
   bgInputError: '#fff6f6',
   bgInverse: 'rgba(244, 242, 240, 0.91)',
