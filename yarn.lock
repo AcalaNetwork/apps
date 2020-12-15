@@ -7681,16 +7681,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron@npm:^10.1.7":
-  version: 10.2.0
-  resolution: "electron@npm:10.2.0"
+"electron@npm:9.3.2":
+  version: 9.3.2
+  resolution: "electron@npm:9.3.2"
   dependencies:
     "@electron/get": ^1.0.1
     "@types/node": ^12.0.12
     extract-zip: ^1.0.3
   bin:
     electron: cli.js
-  checksum: e31420db107a361c2a1d1036b1cd7d0d0661cfc005e1cdfd969d780a696ec5eb24bef500169414657390f6e128b2c4675732c7d4f1608c7b6ebb9a4d81bfe80c
+  checksum: 9464c1bb8c6fc78f1af17ced322a5615fb966f93ce06f3465792cb08db152abc45d43801520c27a0fef62c3d652659bb778b2d8a760befcb3250b885fe7d5fb4
   languageName: node
   linkType: hard
 
@@ -14536,7 +14536,7 @@ fsevents@~2.1.2:
     concurrently: ^5.3.0
     devtron: ^1.4.0
     dnslink-cloudflare: ^3.0.0
-    electron: ^10.1.7
+    electron: 9.3.2
     electron-builder: ^22.9.1
     electron-builder-notarize: ^1.2.0
     i18next-scanner: ^2.11.0
