@@ -11,7 +11,7 @@ import store from 'store';
 
 import { ApiPromise } from '@polkadot/api/promise';
 import { deriveMapCache, setDeriveCache } from '@polkadot/api-derive/util';
-import { ethereumNetworks, POLKADOT_DENOM_BLOCK, POLKADOT_GENESIS, typesBundle, typesChain, typesRpc, typesSpec } from '@polkadot/apps-config';
+import { ethereumNetworks, POLKADOT_DENOM_BLOCK, POLKADOT_GENESIS, typesBundle, typesChain, typesSpec } from '@polkadot/apps-config';
 import { web3Accounts, web3Enable } from '@polkadot/extension-dapp';
 import { TokenUnit } from '@polkadot/react-components/InputNumber';
 import { StatusContext } from '@polkadot/react-components/Status';
@@ -25,6 +25,7 @@ import { defaults as addressDefaults } from '@polkadot/util-crypto/address/defau
 
 import ApiContext from './ApiContext';
 import registry from './typeRegistry';
+import { decodeUrlTypes } from './urlTypes';
 
 interface Props {
   children: React.ReactNode;
@@ -66,7 +67,7 @@ function isKeyringLoaded () {
 }
 
 function getDevTypes (): Record<string, Record<string, string>> {
-  const types = store.get('types', {}) as Record<string, Record<string, string>>;
+  const types = decodeUrlTypes() || store.get('types', {}) as Record<string, Record<string, string>>;
   const names = Object.keys(types);
 
   names.length && console.log('Injected types:', names.join(', '));
@@ -194,7 +195,7 @@ function Api ({ children, store, url }: Props): React.ReactElement<Props> | null
     const signer = new ApiSigner(queuePayload, queueSetTxStatus);
     const types = getDevTypes();
 
-    api = new ApiPromise({ provider, registry, rpc: typesRpc, signer, types, typesBundle, typesChain, typesSpec });
+    api = new ApiPromise({ provider, registry, signer, types, typesBundle, typesChain, typesSpec });
 
     api.on('connected', () => setIsApiConnected(true));
     api.on('disconnected', () => setIsApiConnected(false));
