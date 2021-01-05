@@ -12,12 +12,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@acala-network/type-definitions@npm:^0.6.1":
-  version: 0.6.1
-  resolution: "@acala-network/type-definitions@npm:0.6.1"
+"@acala-network/type-definitions@npm:^0.6.2-4":
+  version: 0.6.2-4
+  resolution: "@acala-network/type-definitions@npm:0.6.2-4"
   dependencies:
-    "@open-web3/orml-type-definitions": ^0.8.2-4
-  checksum: 0a95e17cad0fb7161142ce09fecd8e798d42c5311a0a9a493b70ee1ded9a0883e8568eb447d83553ae2d1ac550dc4e068c9821fd2dd8279954612cd3dc992d38
+    "@open-web3/orml-type-definitions": ^0.8.2-5
+  checksum: c79db4c966798721ef4912f6db62c2ddb89fce340ba5d7f284e39e64043250993d88563f1c7f9245ba89b13bb64f24935573738d8f1e3a7378c07735a9222bd9
   languageName: node
   linkType: hard
 
@@ -1888,10 +1888,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@open-web3/orml-type-definitions@npm:^0.8.2-4":
-  version: 0.8.2-4
-  resolution: "@open-web3/orml-type-definitions@npm:0.8.2-4"
-  checksum: 38205f6a957fc3ca05b15efa1bfccc182d4a5c34474929f91253fd8cd7a64061c3eb62efe8512816510e17c65e3c996c418ad45c9bf3542be52249302690f617
+"@open-web3/orml-type-definitions@npm:^0.8.2-5":
+  version: 0.8.2-5
+  resolution: "@open-web3/orml-type-definitions@npm:0.8.2-5"
+  checksum: 2ed5575e2004da12da401236709d12c084dbd1b9c96b1dc2db2cb157a0407a9d9e14c333c9ebefc91f71b73bf046d0ddda2ad0f241e911b942ed1c015116b641
   languageName: node
   linkType: hard
 
@@ -2183,7 +2183,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot/apps-config@workspace:packages/apps-config"
   dependencies:
-    "@acala-network/type-definitions": ^0.6.1
+    "@acala-network/type-definitions": ^0.6.2-4
     "@babel/runtime": ^7.12.5
     "@edgeware/node-types": ^3.0.11
     "@interlay/polkabtc-types": ^0.2.9
@@ -7597,16 +7597,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron@npm:^11.1.1":
-  version: 11.1.1
-  resolution: "electron@npm:11.1.1"
+"electron@npm:9.3.2":
+  version: 9.3.2
+  resolution: "electron@npm:9.3.2"
   dependencies:
     "@electron/get": ^1.0.1
     "@types/node": ^12.0.12
     extract-zip: ^1.0.3
   bin:
     electron: cli.js
-  checksum: ffa54392ca4bb50a10734bbad389d1d9fb599323781a0e5338165c7803580288a7c1a8b0a6c019ba5dfe8923e1e1729779af8d401882ed233bf9e132a495b7c8
+  checksum: 9464c1bb8c6fc78f1af17ced322a5615fb966f93ce06f3465792cb08db152abc45d43801520c27a0fef62c3d652659bb778b2d8a760befcb3250b885fe7d5fb4
   languageName: node
   linkType: hard
 
@@ -14253,7 +14253,7 @@ fsevents@~2.1.2:
     concurrently: ^5.3.0
     devtron: ^1.4.0
     dnslink-cloudflare: ^3.0.0
-    electron: ^11.1.1
+    electron: 9.3.2
     electron-builder: ^22.10.4
     electron-builder-notarize: ^1.2.0
     i18next-scanner: ^3.0.0
