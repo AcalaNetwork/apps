@@ -9,9 +9,8 @@ import { useEffect, useState } from 'react';
 import { DeriveBalancesAccount } from '@polkadot/api-derive/types';
 import { useApi } from '@polkadot/react-hooks/useApi';
 import { useCall } from '@polkadot/react-hooks/useCall';
-import { BN_ZERO, stringToU8a } from '@polkadot/util';
+import { BN_MILLION, BN_ZERO, stringToU8a } from '@polkadot/util';
 
-const PM_DIV = new BN(1000000);
 const TREASURY_ACCOUNT = stringToU8a('modlpy/trsry'.padEnd(32, '\0'));
 
 interface Treasury {
@@ -27,14 +26,18 @@ export function useTreasury (): Treasury {
   const [burn, setBurn] = useState<BN>();
 
   const treasuryBalance = useCall<DeriveBalancesAccount>(api.derive.balances.account, [TREASURY_ACCOUNT]);
-  const spendPeriod = api.consts.treasury.spendPeriod;
+  const spendPeriod = api.consts.treasury ? api.consts.treasury.spendPeriod : BN_ZERO;
 
   useEffect(() => {
+    if (!api.consts.treasury) {
+      return;
+    }
+
     setValue(treasuryBalance?.freeBalance.gtn(0)
       ? treasuryBalance.freeBalance
       : undefined);
     setBurn(treasuryBalance?.freeBalance.gtn(0) && !api.consts.treasury.burn.isZero()
-      ? api.consts.treasury.burn.mul(treasuryBalance?.freeBalance).div(PM_DIV)
+      ? api.consts.treasury.burn.mul(treasuryBalance.freeBalance).div(BN_MILLION)
       : BN_ZERO);
   }, [api, treasuryBalance, spendPeriod]);
 

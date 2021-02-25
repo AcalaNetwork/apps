@@ -4,37 +4,35 @@
 import React from 'react';
 
 import { Button } from '@polkadot/react-components';
-import { useAccounts, useApi, useToggle } from '@polkadot/react-hooks';
+import { useApi, useToggle } from '@polkadot/react-hooks';
 
-import Propose from '../modals/Propose';
+import RegisterThread from '../modals/RegisterThread';
 import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;
 }
 
-function Actions (): React.ReactElement<Props> {
+function Actions ({ className }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
   const { api } = useApi();
-  const { hasAccounts } = useAccounts();
-  const [showPropose, togglePropose] = useToggle();
+  const [isRegisterOpen, toggleRegisterOpen] = useToggle();
 
   return (
-    <>
-      <Button.Group>
-        {api.query.proposeParachain && (
+    <Button.Group className={className}>
+      {api.tx.registrar.register && (
+        <>
           <Button
             icon='plus'
-            isDisabled={!hasAccounts}
-            label={t<string>('Propose')}
-            onClick={togglePropose}
+            label={t<string>('Register')}
+            onClick={toggleRegisterOpen}
           />
-        )}
-      </Button.Group>
-      {showPropose && (
-        <Propose onClose={togglePropose} />
+          {isRegisterOpen && (
+            <RegisterThread onClose={toggleRegisterOpen} />
+          )}
+        </>
       )}
-    </>
+    </Button.Group>
   );
 }
 

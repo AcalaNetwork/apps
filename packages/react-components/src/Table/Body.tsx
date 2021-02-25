@@ -35,6 +35,7 @@ export default React.memo(styled(Body)(({ theme }: ThemeProps) => `
   position: relative;
 
   td {
+    border-bottom: 1px solid ${theme.borderTable};
     padding: 0.75rem 1rem;
     text-align: left;
     vertical-align: middle;
@@ -177,11 +178,8 @@ export default React.memo(styled(Body)(({ theme }: ThemeProps) => `
   }
 
   tr {
-    // &:nth-child(odd) {
-    //   background: #faf8f6;
-    // }
-
-    &:nth-child(odd) {
+    &:nth-child(odd):not(.isEven),
+    &:nth-child(even).isOdd {
       background: ${theme.bgTable};
     }
 

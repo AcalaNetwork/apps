@@ -2,10 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { ApiPromise } from '@polkadot/api';
+import type { LedgerTypes } from '@polkadot/hw-ledger/types';
 
 import { useCallback, useMemo } from 'react';
 
-import { Ledger } from '@polkadot/ledger';
+import { Ledger } from '@polkadot/hw-ledger';
 import networks from '@polkadot/networks';
 import uiSettings from '@polkadot/ui-settings';
 import { assert } from '@polkadot/util';
@@ -27,8 +28,8 @@ const EMPTY_STATE: StateBase = {
 };
 
 const hasWebUsb = !!(window as unknown as { USB?: unknown }).USB;
+const ledgerChains = networks.filter((n) => !!n.hasLedgerSupport);
 let ledger: Ledger | null = null;
-const ledgerChains = networks.filter((network) => network.hasLedgerSupport);
 
 function retrieveLedger (api: ApiPromise): Ledger {
   if (!ledger) {
@@ -37,7 +38,7 @@ function retrieveLedger (api: ApiPromise): Ledger {
 
     assert(def, `Unable to find supported chain for ${genesisHex}`);
 
-    ledger = new Ledger(uiSettings.ledgerConn as 'u2f', def.network);
+    ledger = new Ledger(uiSettings.ledgerConn as LedgerTypes, def.network);
   }
 
   return ledger;
