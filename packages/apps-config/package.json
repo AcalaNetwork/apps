@@ -9,7 +9,7 @@
   "contributors": [],
   "license": "Apache-2.0",
   "dependencies": {
-    "@acala-network/type-definitions": "^0.6.2-18",
+    "@acala-network/type-definitions": "^0.6.2-19",
     "@babel/runtime": "^7.13.7",
     "@darwinia/types": "^1.1.0-alpha.1",
     "@edgeware/node-types": "^3.3.2",
