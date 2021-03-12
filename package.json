@@ -12,8 +12,8 @@
     "packages/*"
   ],
   "resolutions": {
-    "@polkadot/api": "^3.10.3-5",
-    "@polkadot/api-contract": "^3.10.3-5",
+    "@polkadot/api": "^4.0.4-11",
+    "@polkadot/api-contract": "^4.0.4-11",
     "@polkadot/hw-ledger": "^5.7.2-3",
     "@polkadot/keyring": "^5.7.2-3",
     "@polkadot/networks": "^5.7.2-3",
