@@ -5,8 +5,8 @@ import type { OverrideBundleDefinition } from '@polkadot/types/types';
 
 import { typesBundleForPolkadot } from '@acala-network/type-definitions';
 
-(typesBundleForPolkadot.spec.acala.types[2].types as any)['ChainBridgeChain'] = 'u8';
-(typesBundleForPolkadot.spec.mandala.types[2].types as any)['ChainBridgeChain'] = 'u8';
+(typesBundleForPolkadot.spec.acala.types[2].types as any)['ChainBridgeChainId'] = 'u8';
+(typesBundleForPolkadot.spec.mandala.types[2].types as any)['ChainBridgeChainId'] = 'u8';
 
 typesBundleForPolkadot.spec.acala.alias = {
   ...typesBundleForPolkadot.spec.acala.alias,
