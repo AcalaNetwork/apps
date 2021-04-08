@@ -1,5 +1,65 @@
 # CHANGELOG
 
+## 0.86.2 Mar 29, 2021
+
+Contributed:
+
+- Adjustments for Crust pinning Tthanks to https://github.com/zikunfan)
+- Adjustments for KILT XCM types (Thanks to https://github.com/wischli)
+
+
+## 0.86.1 Mar 29, 2021
+
+Contributed:
+
+- Change global menu styling (Thanks to https://github.com/MiZiet)
+- Update Unique colors & types (Thanks to https://github.com/gregzaitsev)
+- Update Sora types (Thanks to https://github.com/modbrin)
+- Update Realis network (Thanks to https://github.com/Daelon02)
+- Update PolkaBtc types (thanks to https://github.com/gregdhill)
+- Update Moonbeam types (Thanks to https://github.com/joelamouche)
+- Update Acala endpoints (Thanks to https://github.com/xlc)
+- Update Darwinia Crab logo (Thanks to https://github.com/sxlwar)
+- Update Darwinia Crab RPC & types (thanks to https://github.com/WoeOm)
+- Update Clover types (Thanks to https://github.com/pangwa & https://github.com/superpw)
+- Updata Equilibrium types (Thanks to https://github.com/pr0fedt)
+- Add Phoenix chain to Rococo (Thanks to https://github.com/yuyunhong)
+- Add Litentry testnet (Thanks to https://github.com/chenzongxiong)
+- Update types for DOTMog (Thanks to https://github.com/darkfriend77)
+- Fix language on staking (Thanks to https://github.com/SimonKraus)
+- Add pinning of apps UI IPFS to Crust (Thanks to https://github.com/zikunfan)
+
+Changes:
+
+- Display justifications in block explorer
+- Expansion of crowdloan, auctions & parachain views
+- Basic functionality for asset module
+- Adjust ordering of democracy & tips buttons
+- Cater for new Rococo chain reset/deployment
+- Ensure treasury does not depend on council or tips
+
+
+## 0.85.1 Mar 22, 2021
+
+Contributed:
+
+- Adjust dusty spec name (Thanks to https://github.com/akru)
+- Update Galois types (Thanks to https://github.com/hging)
+- Update Crust types (Thanks to https://github.com/zikunfan)
+- Add Vln testnet (thanks to https://github.com/stanly-johnson)
+- Update Datahighway types (Thanks to https://github.com/cgroeschel)
+- Language fixes (Thanks to https://github.com/wirednkod)
+
+Changes:
+
+- Display validator votes on parachains
+- Adjust society (display split, expand member/candidate info & payouts)
+- Adjust inflation calculation for zero staked/issuance
+- Display call hash on signer modal
+- Cleanup Modal layouts & de-dupe tags
+- Cleanup global tabs displays (optimize elements)
+
+
 ## 0.84.1 Mar 15, 2021
 
 Contributed:
@@ -9,7 +69,7 @@ Contributed:
 - Update Moonbeam types (Thanks to https://github.com/joelamouche)
 - Update PolkaBTC types (Thanks to https://github.com/savudani8)
 - Update Kilt types (Thanks to https://github.com/wischli)
-- Update Bitfrost types (Thanks to https://github.com/awesomepan)
+- Update Bifrost types (Thanks to https://github.com/awesomepan)
 - Update Bit.Country paraId (Thanks to https://github.com/justinphamnz)
 - Update Dusty types (Thanks to https://github.com/akru)
 - Update Zenlink types (Thanks to https://github.com/Hayden0323)
@@ -271,7 +331,7 @@ Contributed:
 - Add Plasm Rococo endpoint (thanks to https://github.com/akru)
 - Add Robonomics Rococo endpoint (Thanks to https://github.com/akru)
 - Add Mandala Rococo endpoint (Thanks to https://github.com/ntduan)
-- Add Bitfrost Rococo endpoint (thanks to https://github.com/awesomepan)
+- Add Bifrost Rococo endpoint (thanks to https://github.com/awesomepan)
 - Add Kilt Rococo endpoint (Thanks to https://github.com/wischli)
 - Patract Elara Rococo endpoints (Thanks to https://github.com/toxotguo)
 - Add types for upcoming Rococo Encointer (Thanks to https://github.com/brenzi)
@@ -451,7 +511,7 @@ Contributed:
 - Add first area around bounties, the existing display (Thanks to https://github.com/krzysztof-jelski)
 - Adjust import ordering with plugin (Thanks to https://github.com/ekowalsk)
 - Add Polkadot/Kusama endpoints via PatractLabs (Thanks to https://github.com/toxotguo)
-- Add types for Bitfrost testnet (Thaks to https://github.com/janpo)
+- Add types for Bifrost testnet (Thaks to https://github.com/janpo)
 - Adjust Crust network types & logo (Thanks to https://github.com/zikunfan)
 - Adjust types for Phala poc-3 (Thanks to https://github.com/LusWar)
 - Move to typesBundle for Moonbeam (Thanks to https://github.com/joelamouche)
@@ -530,7 +590,7 @@ Contributed:
 - Update types of Cantillon testnet (Thanks to https://github.com/brenzi)
 - Update types of Gesell testnet (Thanks to https://github.com/brenzi)
 - Add Darwinia network (Thanks to https://github.com/WoeOm)
-- Add Bitfrost Asgard testnet (Thanks to https://github.com/janpo)
+- Add Bifrost Asgard testnet (Thanks to https://github.com/janpo)
 
 Changes:
 
