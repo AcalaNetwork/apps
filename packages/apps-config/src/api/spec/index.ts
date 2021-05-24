@@ -4,6 +4,7 @@
 import type { OverrideBundleDefinition } from '@polkadot/types/types';
 
 import acala from './acala';
+import karura from './karura';
 import apron from './apron';
 import aresParachain from './ares-parachain';
 import bifrost from './bifrost';
@@ -97,6 +98,7 @@ const spec: Record<string, OverrideBundleDefinition> = {
   VLN: vln,
   'VLN-PC': vlnrococo,
   acala,
+  karura,
   apron,
   'ares-parachain': aresParachain,
   bifrost: bifrost,
