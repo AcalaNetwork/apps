@@ -1,6 +1,8 @@
 // Copyright 2017-2021 @polkadot/apps-config authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+/* eslint-disable sort-keys */
+
 import type { OverrideBundleDefinition } from '@polkadot/types/types';
 
 import acala from './acala';
@@ -41,6 +43,7 @@ import integritee from './integritee';
 import ipse from './ipse';
 import jupiter from './jupiter';
 import jupiterRococo from './jupiter-rococo';
+import karura from './karura';
 import kilt from './kilt';
 import konomi from './konomi';
 import kulupu from './kulupu';
@@ -97,6 +100,7 @@ const spec: Record<string, OverrideBundleDefinition> = {
   VLN: vln,
   'VLN-PC': vlnrococo,
   acala,
+  karura,
   apron,
   'ares-parachain': aresParachain,
   bifrost: bifrost,
