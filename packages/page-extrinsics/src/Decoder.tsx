@@ -1,12 +1,13 @@
 // Copyright 2017-2021 @polkadot/app-extrinsics authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { SubmittableExtrinsicFunction } from '@polkadot/api/types';
+import type { SubmittableExtrinsic, SubmittableExtrinsicFunction } from '@polkadot/api/types';
 import type { Call } from '@polkadot/types/interfaces';
 
 import React, { useCallback, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import { Call as CallDisplay, Input, InputExtrinsic, MarkError, Output } from '@polkadot/react-components';
+import { Button, Call as CallDisplay, Input, InputExtrinsic, MarkError, Output } from '@polkadot/react-components';
 import { useApi } from '@polkadot/react-hooks';
 import { assert, isHex } from '@polkadot/util';
 
@@ -14,6 +15,7 @@ import { useTranslation } from './translate';
 
 interface Props {
   className?: string;
+  setDefaultExtrinsic: (extrinsic: SubmittableExtrinsic<'promise'>) => void;
 }
 
 interface ExtrinsicInfo {
@@ -32,10 +34,11 @@ const DEFAULT_INFO: ExtrinsicInfo = {
   extrinsicHex: null
 };
 
-function Decoder ({ className }: Props): React.ReactElement<Props> {
+function Decoder ({ className, setDefaultExtrinsic }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
   const { api } = useApi();
   const [{ extrinsicCall, extrinsicError, extrinsicFn, extrinsicHash }, setExtrinsicInfo] = useState<ExtrinsicInfo>(DEFAULT_INFO);
+  const history = useHistory();
 
   const _setExtrinsicHex = useCallback(
     (extrinsicHex: string): void => {
@@ -61,6 +64,16 @@ function Decoder ({ className }: Props): React.ReactElement<Props> {
       }
     },
     [api]
+  );
+
+  const _gotoSubmission = useCallback(
+    (): void => {
+      if (extrinsicFn && extrinsicCall) {
+        setDefaultExtrinsic(extrinsicFn(...extrinsicCall.args));
+        history.push('/extrinsics');
+      }
+    },
+    [history, setDefaultExtrinsic, extrinsicFn, extrinsicCall]
   );
 
   return (
@@ -95,6 +108,14 @@ function Decoder ({ className }: Props): React.ReactElement<Props> {
           withCopy
         />
       )}
+      <Button.Group>
+        <Button
+          icon='sign-in-alt'
+          isDisabled={!extrinsicFn || !extrinsicCall}
+          label={t<string>('Goto Submission')}
+          onClick={_gotoSubmission}
+        />
+      </Button.Group>
     </div>
   );
 }

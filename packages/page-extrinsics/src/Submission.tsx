@@ -14,14 +14,15 @@ import { useTranslation } from './translate';
 
 interface Props {
   className?: string;
+  defaultExtrinsic: SubmittableExtrinsic<'promise'> | null;
 }
 
-function Selection ({ className }: Props): React.ReactElement<Props> {
+function Submission ({ className, defaultExtrinsic }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
   const { apiDefaultTxSudo } = useApi();
   const [accountId, setAccountId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [extrinsic, setExtrinsic] = useState<SubmittableExtrinsic<'promise'> | null>(null);
+  const [extrinsic, setExtrinsic] = useState<SubmittableExtrinsic<'promise'> | null>(defaultExtrinsic);
 
   const _onExtrinsicChange = useCallback(
     (method?: SubmittableExtrinsic<'promise'>) => setExtrinsic(() => method || null),
@@ -65,6 +66,7 @@ function Selection ({ className }: Props): React.ReactElement<Props> {
         label={t<string>('submit the following extrinsic')}
         onChange={_onExtrinsicChange}
         onError={_onExtrinsicError}
+        value={extrinsic}
       />
       <Output
         isDisabled
@@ -101,4 +103,4 @@ function Selection ({ className }: Props): React.ReactElement<Props> {
   );
 }
 
-export default React.memo(Selection);
+export default React.memo(Submission);

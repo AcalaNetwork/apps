@@ -1,12 +1,14 @@
 // Copyright 2017-2021 @polkadot/app-extrinsics authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+import type { ApiPromise } from '@polkadot/api';
 import type { SubmittableExtrinsic, SubmittableExtrinsicFunction } from '@polkadot/api/types';
 import type { RawParam } from '@polkadot/react-params/types';
 import type { TypeDef } from '@polkadot/types/types';
 
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { useApi } from '@polkadot/react-hooks';
 import Params from '@polkadot/react-params';
 import { GenericCall } from '@polkadot/types';
 import { getTypeDef } from '@polkadot/types/create';
@@ -18,6 +20,7 @@ import paramComponents from './Params';
 interface Props {
   className?: string;
   defaultValue: SubmittableExtrinsicFunction<'promise'>;
+  value?: SubmittableExtrinsic<'promise'> | null;
   isDisabled?: boolean;
   isError?: boolean;
   isPrivate?: boolean;
@@ -44,8 +47,23 @@ function getParams ({ meta }: SubmittableExtrinsicFunction<'promise'>): { name: 
   }));
 }
 
-function ExtrinsicDisplay ({ defaultValue, isDisabled, isError, isPrivate, label, onChange, onEnter, onError, onEscape, withLabel }: Props): React.ReactElement<Props> {
-  const [extrinsic, setCall] = useState<CallState>({ fn: defaultValue, params: getParams(defaultValue) });
+function getFn (api: ApiPromise, extrinsic?: SubmittableExtrinsic<'promise'> | null): SubmittableExtrinsicFunction<'promise'> | null {
+  if (extrinsic) {
+    return api.tx[extrinsic.method.section][extrinsic.method.method];
+  }
+
+  return null;
+}
+
+function ExtrinsicDisplay ({ defaultValue, isDisabled, isError, isPrivate, label, onChange, onEnter, onError, onEscape, value, withLabel }: Props): React.ReactElement<Props> {
+  const { api } = useApi();
+
+  defaultValue = getFn(api, value) || defaultValue;
+
+  const [extrinsic, setCall] = useState<CallState>({
+    fn: defaultValue,
+    params: getParams(defaultValue)
+  });
   const [values, setValues] = useState<RawParam[]>([]);
 
   useEffect((): void => {
